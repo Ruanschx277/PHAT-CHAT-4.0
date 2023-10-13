@@ -1,89 +1,69 @@
-html, body, form
-{
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
     margin: 0;
     padding: 0;
 }
 
-body
-{
-    background-color: lightgrey;
+a {
+    text-decoration: none;
+    color: #007bff;
 }
 
-nav
-{
-    height: 80px;
-    padding-left: 25px;
-    padding-right: 50px;
-    background-color: white;
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 10px 0;
 }
 
-.nav-con
-{
-    width: 700px;
-    height: 50px;
-    float: left;
-    margin-left: 10%;
-    padding-top: 8px;
-}
-
-.nav-con ul
-{
+nav ul {
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-.nav-con li
-{
-    float: left;
-    width: 90px;
-    height: 35px;
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.nav-con {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.PageLogo img {
+    vertical-align: middle;
+}
+
+
+.container {
     text-align: center;
-    margin-right: 15px;
-    margin-left: 100px;
-    padding-top: 5px;
+    padding: 20px;
 }
 
-.nav-con li:hover
-{
-    font-weight: bold;
-    cursor: pointer;
+.row {
+    display: inline-block;
+    margin: 20px;
+    text-align: center;
 }
 
-.active
-{ 
-    color: #F7B267 !important;
-    font-weight: bold;
-    border-bottom: 2px solid #F7B267;
-}
-
-.PageLogo
-{
-    width: 100px;
-    float: left;
-}
-
-.container
-{
-    width: 15%;
-    height: 100%;
-}
-
-.container h2
-{
+.row img {
     width: 50px;
-    float: left;
-    padding-left: 15px;
+    margin: 0 10px;
 }
 
-.row
-{
-    margin-left: 100px;
-    padding-top: 50px;
-    float: left;
-    width: 100%;
-}
 
-.row img
-{
-    float: left;
-    padding-top: 9px;
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .row img {
+        width: 40px;
+    }
 }
