@@ -3,6 +3,7 @@
 <head>
     <title>Movie Sign Up</title>
     <link rel="stylesheet" type="text/css" href="/CSS/sign up.css">
+    <script src="/JS/signup.js"></script>
 </head>
 <body>
     <div class="container">
@@ -10,11 +11,12 @@
             <img src="/LOGO/PHAT CHAT TV.png" alt="Movie Logo">
             <h1>Welcome to Phat Chat Tv</h1>
         </div>
-        <form id="signup-form" action="register.php" method="post">
+        <form id="signup-form" action="register.php" method="post" onsubmit="return validateForm();">
             <h2>Sign Up</h2>
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <div class="invalid-feedback" id="email-error"></div>
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number:</label>
@@ -23,11 +25,15 @@
             <div class="form-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
+                <div class="invalid-feedback" id="password-error"></div>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password:</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+                <div class="invalid-feedback" id="confirm-password-error"></div>
             </div>
             <button type="submit">Sign Up</button>
         </form>
         <p>Already have an account? <a href="/Page/Sign In.html">Sign In</a></p>
     </div>
-</body>
-</html>
 
