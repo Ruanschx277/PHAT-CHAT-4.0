@@ -1,19 +1,17 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #ff6600; 
-    margin: 0;
-    padding: 0;
+    background-color: #ffae00;
 }
 
 .container {
-    background-color: #fff;
-    max-width: 400px;
+    max-width: 600px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
+    background-color: #ffffff;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
+
 
 
 .h1{
@@ -67,6 +65,6 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #ffdd00;
 }
 
