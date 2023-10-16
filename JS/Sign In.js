@@ -33,3 +33,29 @@ const signinForm = document.getElementById("signin-form");
 if (signinForm) {
     signinForm.addEventListener("submit", handleFormSubmit);
 }
+
+
+
+
+function validateForm() {
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+
+
+    if (username === "" || password === "") {
+        alert("Username and password are required");
+        return false;
+    }
+
+ 
+    var userData = {
+        username: username,
+        password: password
+    };
+    localStorage.setItem('userData', JSON.stringify(userData));
+
+
+    window.location.href = "/Page/HOME.HTML"; 
+
+    return false; 
+}
