@@ -1,30 +1,34 @@
-function validateForm() {
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirm-password").value;
-    var passwordError = document.getElementById("password-error");
-    var confirmPasswordError = document.getElementById("confirm-password-error");
+const signupForm = document.getElementById("signup-form");
+const signupButton = document.getElementById("signup-button");
 
-   
-    if (!isValidPassword(password)) {
-        passwordError.textContent = "Password must contain at least 1 digit, 1 uppercase, and 1 lowercase character.";
-        return false;
-    } else {
-        passwordError.textContent = "";
+signupButton.addEventListener("click", function() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    if (localStorage.getItem(username) !== null) {
+        alert("Username already exists. Please choose a different one.");
+        return;
     }
 
- 
-    if (password !== confirmPassword) {
-        confirmPasswordError.textContent = "Passwords do not match.";
-        return false;
+    localStorage.setItem(username, password);
+    alert("Sign-up successful! You can now sign in.");
+});
+
+
+const signinForm = document.getElementById("signin-form");
+const signinButton = document.getElementById("signin-button");
+
+
+signinButton.addEventListener("click", function() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
+
+    const storedPassword = localStorage.getItem(username);
+
+    if (storedPassword === password) {
+        alert("Sign-in successful!");
+       
     } else {
-        confirmPasswordError.textContent = "";
+        alert("Invalid username or password. Please try again.");
     }
-
-    return true;
-}
-
-function isValidPassword(password) {
-    var passwordPattern = /^(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}$/;
-    return passwordPattern.test(password);
-}
+});
