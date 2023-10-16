@@ -1,52 +1,35 @@
+const signupForm = document.getElementById("signup-form");
+const signupButton = document.getElementById("signup-button");
 
+signupButton.addEventListener("click", function() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-function validatePassword() {
-    var password = document.getElementById("password").value;
-    var confirmPassword = document.getElementById("confirm-password").value;
-
-    var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-
-    if (!password.match(passwordRegex)) {
-        alert("Password must contain at least one lowercase letter, one uppercase letter, one number, and be at least 8 characters long.");
-        return false;
+    if (localStorage.getItem(username) !== null) {
+        alert("Username already exists. Please choose a different one.");
+        return;
     }
 
-    if (password !== confirmPassword) {
-        alert("Passwords do not match. Please confirm your password.");
-        return false;
-    }
+    localStorage.setItem(username, password);
+    alert("Sign-up successful! You can now sign in.");
+});
 
-    return true;
-}
 
-function validateForm() {
-    var email = document.getElementById('email').value;
-    var phone = document.getElementById('phone').value;
-    var password = document.getElementById('password').value;
-    var confirmPassword = document.getElementById('confirm-password').value;
+const signinForm = document.getElementById("signin-form");
+const signinButton = document.getElementById("signin-button");
 
-    if (email === "" || phone === "" || password === "" || confirmPassword === "") {
-        alert("All fields are required");
-        return false;
-    }
 
-  
+signinButton.addEventListener("click", function() {
+    const username = document.getElementById("username").value;
+    const password = document.getElementById("password").value;
 
-    return true;
-}
+    const storedPassword = localStorage.getItem(username);
 
-const apiUrl = `https://github.com/Ruanschx277/PHAT-CHAT-4.0/${label}`;
-
-$.ajax({
-    url: apiUrl,
-    method: 'GET',
-    dataType: 'json',
-    success: function(data) {
-     
-        console.log(data);
-    },
-    error: function(error) {
-        console.error('Error:', error);
+    if (storedPassword === password) {
+        alert("Sign-in successful!");
+       
+    } else {
+        alert("Invalid username or password. Please try again.");
     }
 });
 

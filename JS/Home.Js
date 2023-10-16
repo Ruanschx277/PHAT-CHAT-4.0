@@ -74,7 +74,7 @@ function goToWatchlistPage() {
 
 
 function fetchAndDisplayHomePageData() {
-    const apiUrl = `https://github.com/Ruanschx277/PHAT-CHAT-4.0/cards/${cardsId}`;
+    const apiUrl = ``;
 
     $.ajax({
         url: apiUrl,

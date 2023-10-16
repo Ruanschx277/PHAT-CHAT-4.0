@@ -60,7 +60,7 @@ function validateForm() {
     return false; 
 }
 
-const apiUrl = `https://github.com/Ruanschx277/PHAT-CHAT-4.0/${label}`;
+const apiUrl = '';
 
 $.ajax({
     url: apiUrl,
