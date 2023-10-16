@@ -1,8 +1,9 @@
+
+
 function validatePassword() {
     var password = document.getElementById("password").value;
     var confirmPassword = document.getElementById("confirm-password").value;
 
- 
     var passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
     if (!password.match(passwordRegex)) {
@@ -18,7 +19,6 @@ function validatePassword() {
     return true;
 }
 
-
 function validateForm() {
     var email = document.getElementById('email').value;
     var phone = document.getElementById('phone').value;
@@ -30,20 +30,37 @@ function validateForm() {
         return false;
     }
 
-    if (password !== confirmPassword) {
-        alert("Password and Confirm Password must match");
-        return false;
-    }
+  
 
-    var userData = {
-        email: email,
-        phone: phone,
-        password: password,
-    };
-    localStorage.setItem('userData', JSON.stringify(userData));
+    return true;
+}
+
+const apiUrl = `https://github.com/Ruanschx277/PHAT-CHAT-4.0/${label}`;
+
+$.ajax({
+    url: apiUrl,
+    method: 'GET',
+    dataType: 'json',
+    success: function(data) {
+     
+        console.log(data);
+    },
+    error: function(error) {
+        console.error('Error:', error);
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
   
-    window.location.href = "/Page/HOME.HTML"; 
 
-    return false; 
-}
