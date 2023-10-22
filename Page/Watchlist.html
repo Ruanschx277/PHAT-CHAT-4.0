@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Watch List</title>
 
-    <!--Internal Documents-->
     <link rel="stylesheet" href="../CSS/WatchList.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this line -->
+    <script src="/JS/watchList.js"></script>
 </head>
-<body>
+<body onload = "displayMovie()">
     <nav>
         <div class = "PageLogo">
-            <a href = "HOME.HTML"><img src = "assets/Logo.png"  alt = "logo" width = "100px"></a>
+            <a href = "HOME.HTML"><img src = "../WatchList Assets/Logo.png"  alt = "logo" width = "100px"></a>
         </div>
 
         <div class = "nav-con">
@@ -25,21 +26,34 @@
 
     <div class = "container">
         <div class = "row">
-            <img src = "assets/LiveIcon.png"  alt = "live" width = "50px"><h2>Live</h2>
+            <img src = "../WatchList Assets/LiveIcon.png"  alt = "live" width = "50px"><h2>Live</h2>
         </div>
 
         <div class = "row">
-            <img src = "assets/ChannelsIcon.png"  alt = "channels" width = "50px"><h2>Channels</h2>
+            <img src = "../WatchList Assets/ChannelsIcon.png"  alt = "channels" width = "50px"><h2>Channels</h2>
         </div>
 
         <div class = "row">
-            <img src = "assets/LatestIcon.png"  alt = "latest" width = "50px"><h2>Latest</h2>
+            <img src = "../WatchList Assets/LatestIcon.png"  alt = "latest" width = "50px"><h2>Latest</h2>
         </div>
 
         <div class = "row">
-            <img src = "assets/SettingsIcon.png"  alt = "settings" width = "40px"><h2>Settings</h2>
+            <img src = "../WatchList Assets/SettingsIcon.png"  alt = "settings" width = "40px"><h2>Settings</h2>
         </div>
     </div>
+
+    <div class = "container">
+        <div class = "row">
+            <div class="card-container" id="card-container">
+                <div id = "watchlist">
+                </div>
+              </div>
+        </div>
+    </div>
+
+
+
+
     
 </body>
 </html>
