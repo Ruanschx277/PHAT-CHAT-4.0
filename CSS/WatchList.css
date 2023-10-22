@@ -87,3 +87,34 @@ nav
     float: left;
     padding-top: 9px;
 }
+
+
+.card-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.card {
+    width: 18rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card-img-top {
+    max-width: 100%;
+    height: auto;
+}
+
+.card-title {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.card-text {
+    margin-top: 10px;
+}
