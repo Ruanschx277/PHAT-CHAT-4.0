@@ -1,5 +1,5 @@
-const signupForm = document.getElementById("signup-form");
 const signupButton = document.getElementById("signup-button");
+const signinButton = document.getElementById("signin-button");
 
 signupButton.addEventListener("click", function() {
     const username = document.getElementById("username").value;
@@ -12,12 +12,9 @@ signupButton.addEventListener("click", function() {
 
     localStorage.setItem(username, password);
     alert("Sign-up successful! You can now sign in.");
+
+    window.location.href = "/Page/Sign In.html";
 });
-
-
-const signinForm = document.getElementById("signin-form");
-const signinButton = document.getElementById("signin-button");
-
 
 signinButton.addEventListener("click", function() {
     const username = document.getElementById("username").value;
@@ -27,7 +24,6 @@ signinButton.addEventListener("click", function() {
 
     if (storedPassword === password) {
         alert("Sign-in successful!");
-       
     } else {
         alert("Invalid username or password. Please try again.");
     }
@@ -42,7 +38,7 @@ function validatePassword() {
         passwordError.textContent = "Password and Confirm Password do not match.";
         return false;
     } else {
-        passwordError.textContent = "invalid password"; 
+        passwordError.textContent = "Passwords match!";
     }
 
     return true;
