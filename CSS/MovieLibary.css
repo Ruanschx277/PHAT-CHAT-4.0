@@ -5,11 +5,14 @@
  
  
  /* Navigation bar color and spacing */
- .bg-orange {
+  .bg-orange {
     background-color: #F79D65 !important;
   }
   .bg-red {
     background-color: red !important;
+  }
+  .bg-green {
+    background-color: green;
   }
  
  
@@ -24,14 +27,28 @@
     margin-top: 20px; /* Adjust the margin-top value to control the spacing */
   }
   
-  
+/*Buttons*/
+.btn {
+  background-color: #534b52; /* Change this to your desired button color */
+  border-color: #e0ddef; /* Change this to match the button color */
+  color: #fff; /* Text color */
+}
 
-  /*button hover states*/
-  .btn:hover {
+#back-to-top-button {
+  display: none; /* Hide the button by default */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+
+/*button hover states*/
+.btn:hover {
     background-color: #F25C54; /* Change this color to your desired hover color */
   }
 
-  .custom-signup-btn {
+.custom-signup-btn {
     background-color: #534b52; /* Change this to your desired color */
     border-color: #e0ddef; /* Change this to match the background color */
     color: #fff; /* Text color */
@@ -41,3 +58,8 @@
   background-color: #ff6600; /* Change this to the hover color you want */
   border-color: #ff6600; /* Change this to match the hover background color */
   color: #fff; /* Text color on hover */
+}
+/*cards*/
+.custom-card-bg {
+  background-color: #E0DDCF; /* Change this to your desired card background color */
+} 
