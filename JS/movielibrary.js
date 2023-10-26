@@ -1,20 +1,27 @@
 /*Back to top button*/
-window.onscroll = function() {
-    scrollFunction();
-  };
 
-  function scrollFunction() {
-    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-      document.getElementById("back-to-top-button").style.display = "block";
-    } else {
-      document.getElementById("back-to-top-button").style.display = "none";
-    }
-  }
+    $(document).ready(function() {
+        // Show or hide the Back to Top button based on the user's scroll position
+        $(window).scroll(function() {
+            if ($(this).scrollTop() > 100) {
+                $('#back-to-top-btn').fadeIn();
+            } else {
+                $('#back-to-top-btn').fadeOut();
+            }
+        });
 
-  function scrollToTop() {
-    document.body.scrollTop = 0; // For Safari
-    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-  }
+        // Scroll back to the top when the button is clicked with a faster and smoother linear animation
+        $('#back-to-top-btn').click(function() {
+            $('html, body').animate({ scrollTop: 0 }, {
+                duration: 1000, // Animation duration in milliseconds
+                easing: 'linear', // Linear easing for a consistent speed
+            });
+            return false;
+        });
+    });
+
+
+
 
 /*Add to Watch List button*/  
 // Sample watch later list (you should use a server or local storage for a real application)

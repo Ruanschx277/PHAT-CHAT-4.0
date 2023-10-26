@@ -1,65 +1,65 @@
- 
- body {
-    background-color: #2D232E; /* Use your desired background color */
-  }
- 
- 
- /* Navigation bar color and spacing */
-  .bg-orange {
-    background-color: #F79D65 !important;
-  }
-  .bg-red {
-    background-color: red !important;
-  }
-  .bg-green {
-    background-color: green;
-  }
- 
- 
-  /* Adjust the logo size and spacing */
-  .navbar-brand img {
-    width: 80px; /* Adjust the width to make the logo smaller */
-    margin-right: 10px; /* Adjust the margin to control how much it hangs off */
-  }
-
-  /* Spacing between the navigation bar and the cards */
-  .library-container {
-    margin-top: 20px; /* Adjust the margin-top value to control the spacing */
-  }
-  
-/*Buttons*/
-.btn {
-  background-color: #534b52; /* Change this to your desired button color */
-  border-color: #e0ddef; /* Change this to match the button color */
-  color: #fff; /* Text color */
+body {
+  background-color: #2D232E;
 }
 
-#back-to-top-button {
-  display: none; /* Hide the button by default */
+/* Navigation bar color and spacing */
+.bg-orange {
+  background-color: #F79D65 !important;
+}
+
+/*badge colors*/
+.bg-red {
+  background-color: red !important;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+/* Adjust the logo size and spacing */
+.navbar-brand img {
+  width: 60px; /* Make the logo smaller for responsiveness */
+  margin-right: 5px; /* Adjust margin for spacing */
+}
+
+/* Spacing between the navigation bar and the cards */
+.library-container {
+  margin-top: 10px; /* Adjust the margin-top for spacing */
+}
+
+/* Buttons */
+.btn {
+  background-color: #534b52;
+  border-color: #e0ddef;
+  color: #fff;
+}
+
+.btn:hover {
+  background-color: #F25C54;
+}
+
+.custom-signup-btn {
+  background-color: #534b52;
+  border-color: #e0ddef;
+  color: #fff;
+}
+
+.custom-signup-btn:hover {
+  background-color: #ff6600;
+  border-color: #ff6600;
+  color: #fff;
+}
+
+/* Cards */
+.custom-card-bg {
+  background-color: #E0DDCF;
+}
+
+/* Back to Top Button */
+/* CSS for Back to Top Button */
+.btn-back-to-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999;
+  display: none; /* Initially hidden */
 }
-
-
-/*button hover states*/
-.btn:hover {
-    background-color: #F25C54; /* Change this color to your desired hover color */
-  }
-
-.custom-signup-btn {
-    background-color: #534b52; /* Change this to your desired color */
-    border-color: #e0ddef; /* Change this to match the background color */
-    color: #fff; /* Text color */
-  }
-
-.custom-signup-btn:hover {
-  background-color: #ff6600; /* Change this to the hover color you want */
-  border-color: #ff6600; /* Change this to match the hover background color */
-  color: #fff; /* Text color on hover */
-}
-/*cards*/
-.custom-card-bg {
-  background-color: #E0DDCF; /* Change this to your desired card background color */
-} 
