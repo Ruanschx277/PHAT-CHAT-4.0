@@ -1,47 +1,31 @@
-/*Back to top button*/
+/*BACK TO TOP*/
+// Function to show or hide the "Back to Top" button
+document.addEventListener("DOMContentLoaded", function() {
+  window.onscroll = function() {
+    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+      document.getElementById("backToTopBtn").style.display = "block";
+    } else {
+      document.getElementById("backToTopBtn").style.display = "none";
+    }
+  };
+});
 
-    $(document).ready(function() {
-        // Show or hide the Back to Top button based on the user's scroll position
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('#back-to-top-btn').fadeIn();
-            } else {
-                $('#back-to-top-btn').fadeOut();
-            }
-        });
-
-        // Scroll back to the top when the button is clicked with a faster and smoother linear animation
-        $('#back-to-top-btn').click(function() {
-            $('html, body').animate({ scrollTop: 0 }, {
-                duration: 1000, // Animation duration in milliseconds
-                easing: 'linear', // Linear easing for a consistent speed
-            });
-            return false;
-        });
-    });
-
-
-
-
-/*Add to Watch List button*/  
-// Sample watch later list (you should use a server or local storage for a real application)
-let watchLaterList = [];
-
-// Function to add a movie to the watch later list
-function addToWatchLater(movieId) {
-  if (!watchLaterList.includes(movieId)) {
-    watchLaterList.push(movieId);
-    alert('Movie added to Watch Later list');
-    // You can also send the updated watch later list to the server here
-  } else {
-    alert('Movie is already in the Watch Later list');
-  }
+function scrollToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
+}
+// Function to scroll back to the top of the page smoothly
+function scrollToTop() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
 }
 
-// Function to handle the "Watch Later" button click
-document.querySelectorAll('.watch-later-button').forEach(button => {
-  button.addEventListener('click', function() {
-    const movieId = this.getAttribute('data-movie-id');
-    addToWatchLater(movieId);
-  });
-});
+/*WATCH LIST*/
+
+/*Success Modal*/
+// JavaScript to show the success modal
+function showSuccessModal() {
+  var successModal = new bootstrap.Modal(document.getElementById("successModal"));
+  successModal.show();
+}
+
