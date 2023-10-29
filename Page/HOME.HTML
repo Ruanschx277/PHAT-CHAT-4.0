@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/CSS/Home.css"> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
+    <script src="/JS/Home.Js"></script>
     <title>Movie Streaming</title>
    
 </head>
@@ -16,6 +18,8 @@
             <ul>
                 <li><a href="/Page/HOME.HTML">HOME</a></li>
                 <li><a href="/Page/Movie Libary.html">Movie Library</a></li>
+                <li><a href="/Page/SingleFilms.html">Single Movies</a></li>
+                <li><a href="/Page/Watchlist.html">Watch List</a></li>
 
 
 
@@ -27,48 +31,19 @@
     <section class="hero">
         <h1>Welcome to Movie Streaming</h1>
         <p>Stream the latest movies and TV shows anytime, anywhere.</p>
-        <a href="#" class="cta-button">Start Watching</a>
+        <a href="/Page/Movie Libary.html" class="cta-button">start watching  Click here
+        </a>
     </section>
 
 
     <div class="must-watch-title">
         <h2>Must Watch Movies</h2>
     </div>
-    <div class="card-container">
-        <div class="card">
-            <img src="/Images/14532417_max.jpg" class="card-img-top" alt="Card Image 1">
-            <div class="card-body">
-                <h5 class="card-title">Avengers</h5>
-                <p class="card-text">Action Packed Super Heroes Assememble together to save the World from a Alien Invasion.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="/Images/550x816 (2).jpg" class="card-img-top" alt="Card Image 2">
-            <div class="card-body">
-                <h5 class="card-title">Thor Love and Thunder</h5>
-                <p class="card-text">Thor Finds his Long lost love.Teaming up with Alien friends and fighting a new Dangerous Evil God...</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-
-        <div class="card">
-            <img src="/Images/550x816 (3).jpg" class="card-img-top" alt="Card Image 3">
-            <div class="card-body">
-                <h5 class="card-title">The Goonies</h5>
-                <p class="card-text">Together, these young friends embark on a thrilling and perilous quest to find the hidden treasure of the legendary pirate One-Eyed Willy in order to save their homes and neighborhood from being turned into a golf course.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-    </div>
+    <div class="card-container" id="card-container">
+      </div>
 
     <footer>
         <p>&copy; 2023 Movie Streaming. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
-
-
-
