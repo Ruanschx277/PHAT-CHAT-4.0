@@ -31,4 +31,8 @@ signinButton.addEventListener("click", function() {
     } else {
         alert("Invalid username or password. Please try again.");
     }
+<<<<<<< Updated upstream
 });
+=======
+});
+>>>>>>> Stashed changes
