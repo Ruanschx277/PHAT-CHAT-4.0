@@ -1,19 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Phat Chat TV</title>
-<!-- Style Sheets -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    
+    <!-- Style Sheets -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="/CSS/MovieLibary.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-<!-- Javascript -->
+    <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <script src="/JS/MovieLibary.js"></script>
+    <script src="scripts/main.js"></script>
 </head>
 <body>
 <!-- Nav Bar -->
@@ -28,10 +27,10 @@
               <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
                   <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#!">All Products</a></li>
+                      <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
                       <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="#!">Popular Items</a></li>
-                      <li><a class="dropdown-item" href="#!">New Arrivals</a></li>
+                      <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                      <li><a class="dropdown-item" href="#!">Contact Us</a></li>
                   </ul>
               </li>
           </ul>
@@ -47,10 +46,9 @@
 <!-- Nav Bar -->
 <!--Library-->
  <!-- Section-->
- <!--Card1-->
  <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
             <div class="col mb-5"><!--Card1-->
                 <div class="card h-100 d-flex flex-column custom-card-bg">
                     <!-- New badge-->
@@ -66,19 +64,19 @@
                     </div>
                     <!-- Product actions-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                    <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                    <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
+                      <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
+                      <a class="btn btn-outline-orange btn-block" data-movie-id="1" onclick="showSuccessModal()">Watch List</a>
                     </div>
                 </div>
                 
             </div>
-             <!--Card2-->
-            <div class="col mb-5">
+           
+            <div class="col mb-5"><!--Card2-->
               <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- New badge-->
                 <div class="badge bg-red text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NEW!</div>
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/pnghorror movie poster@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngpoison@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                   <div class="text-center">
@@ -93,13 +91,13 @@
                 </div>
               </div>
           </div>
-            <!--Card3-->
-          <div class="col mb-5">
+           
+          <div class="col mb-5"> <!--Card3-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
               <!-- New badge-->
               <div class="badge bg-red text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NEW!</div>
               <!-- Product image-->
-              <img class="card-img-top" src="/Images/pngMovie poster@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
+              <img class="card-img-top" src="/Images/movielibrary/pngAsset 2@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
               <!-- Product details-->
               <div class="card-body p-4">
                 <div class="text-center">
@@ -114,8 +112,7 @@
               </div>
             </div>
         </div>
-          <div class="col mb-5">
-            <!--Card4-->
+          <div class="col mb-5"><!--Card4-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
                 <img class="card-img-top" src="/Images/550x816 (2).jpg" alt="..." style="max-width: 100%; max-height: 100%;">
@@ -133,11 +130,10 @@
                 </div>
             </div>
           </div>
-          <div class="col mb-5">
-             <!--Card5-->
+          <div class="col mb-5"><!--Card5-->
              <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/Halloween1978.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 3@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -152,11 +148,10 @@
                 </div>
             </div>
           </div>
-          <div class="col mb-5">
-              <!--Card6-->  
+          <div class="col mb-5"><!--Card6-->  
               <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/HarryPotter.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 5@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -175,7 +170,7 @@
               <!--Card7-->  
               <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/Jurassic park.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 6@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -194,7 +189,7 @@
             <!--Card8-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/Geekchic.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 7@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -213,7 +208,7 @@
             <!--Card9-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/Barbie.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 8@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -232,7 +227,7 @@
             <!--Card10-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/DrWho.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 10@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -251,7 +246,7 @@
             <!--Card11-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/Matrix.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngAsset 11@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -270,7 +265,7 @@
             <!--Card12-->
             <div class="card h-100 d-flex flex-column custom-card-bg">
                 <!-- Product image-->
-                <img class="card-img-top" src="/Images/shrek.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
+                <img class="card-img-top" src="/Images/movielibrary/pngHarr Potter@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
                 <!-- Product details-->
                 <div class="card-body p-4">
                 <div class="text-center">
@@ -288,12 +283,28 @@
       </div> <!--Row-->
     </div> <!--Container-->
 </section>
-
 <!-- Footer-->
 <footer class="py-5 bg-dark">
-  <div class="container"><p class="m-0 text-center text-white">Copyright &copy; PhatChatTV 2023</p></div>
+  <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; PhatChatTV 2023</p>
+  </div>
 </footer>
-
+<!--Back to Top button-->
+<button class="btn" id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">SUCCESS!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        This movie has been added to your Watch List.
+      </div>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
