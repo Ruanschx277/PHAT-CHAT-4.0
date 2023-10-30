@@ -1,76 +1,44 @@
+document.addEventListener("DOMContentLoaded", function () {
+    const signInForm = document.querySelector(".signin-form");
+    const usernameInput = document.querySelector("input[placeholder='Username']");
+    const passwordInput = document.querySelector("input[placeholder='Password']");
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
 
-function handleFormSubmit(event) {
-    event.preventDefault(); 
- 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+    signInForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = usernameInput.value;
+        const password = passwordInput.value;
 
- 
-    fetch("authenticate.php", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.authenticated) {
-               
-                window.location.href = "/Page/HOME.HTML"; 
-            } else {
-               
-                alert("Authentication failed. Please check your username and password.");
-            }
-        })
-        .catch(error => {
-            console.error("Error: ", error);
-        });
-}
+        // Replace "your_username" and "your_password" with your actual credentials check logic
+        if (username === "your_username" && password === "your_password") {
+            // Redirect to the home page after successful login
+            window.location.href = "/Page/home.html";
+        } else {
+            alert("Invalid username or password. Please try again.");
+        }
+    });
 
-
-const signinForm = document.getElementById("signin-form");
-if (signinForm) {
-    signinForm.addEventListener("submit", handleFormSubmit);
-}
+    forgotPasswordLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        var userEmail = prompt("Enter your email address for password reset:");
+        if (userEmail !== null) {
+            console.log("Password reset email sent to: " + userEmail);
+            alert("Password reset instructions have been sent to your email.");
+        }
+    });
+});
 
 
-
-
-function validateForm() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-
-    if (username === "" || password === "") {
-        alert("Username and password are required");
-        return false;
-    }
-
- 
-    var userData = {
-        username: username,
-        password: password
-    };
-    localStorage.setItem('userData', JSON.stringify(userData));
-
-
-    window.location.href = "/Page/HOME.HTML"; 
-
-    return false; 
-}
-
-const apiUrl = '';
-
+// Example of using the GitHub API to fetch data from a public repository
+var githubApiUrl = "https://api.github.com/repos/Ruanschx277/PHAT-CHAT-4.0/contents";
 $.ajax({
-    url: apiUrl,
+    url: githubApiUrl,
     method: 'GET',
     dataType: 'json',
-    success: function(data) {
-     
+    success: function (data) {
         console.log(data);
     },
-    error: function(error) {
+    error: function (error) {
         console.error('Error:', error);
     }
 });
