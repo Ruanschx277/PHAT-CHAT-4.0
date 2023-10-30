@@ -9,8 +9,10 @@ document.addEventListener("DOMContentLoaded", function () {
         const username = usernameInput.value;
         const password = passwordInput.value;
 
-        // Replace "your_username" and "your_password" with your actual credentials check logic
-        if (username === "your_username" && password === "your_password") {
+        // Retrieve user data from local storage
+        const storedUserData = JSON.parse(localStorage.getItem(username));
+
+        if (storedUserData && storedUserData.password === password) {
             // Redirect to the home page after successful login
             window.location.href = "/Page/home.html";
         } else {
@@ -28,17 +30,3 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-
-// Example of using the GitHub API to fetch data from a public repository
-var githubApiUrl = "https://api.github.com/repos/Ruanschx277/PHAT-CHAT-4.0/contents";
-$.ajax({
-    url: githubApiUrl,
-    method: 'GET',
-    dataType: 'json',
-    success: function (data) {
-        console.log(data);
-    },
-    error: function (error) {
-        console.error('Error:', error);
-    }
-});
