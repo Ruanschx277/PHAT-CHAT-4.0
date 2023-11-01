@@ -1,38 +1,38 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const signInForm = document.querySelector("Signin-form");
-    const usernameInput = document.querySelector("input[placeholder='Username']");
-    const passwordInput = document.querySelector("input[placeholder='Password']");
-    const forgotPasswordLink = document.getElementById("forgot-passwordreset-link");
-
-    signInForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const username = usernameInput.value;
-        const password = passwordInput.value;
-
-        // In a real application, you should send the username and password to the server for authentication.
-        // This is a basic example for demonstration purposes.
-        const users = {
-            "your_username": "your_password", // Replace with actual user data
-        };
-
-        if (users[username] === password) {
-            // Redirect to the home page after successful login
-            window.location.href = "/Page/HOME.HTML";
-        } else {
-            alert("Invalid username or password. Please try again.");
-        }
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const loginButton = document.getElementById("login-button");
+    const forgotPasswordLink = document.getElementById("forgot-password-link");
+  
+    loginButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      const username = usernameInput.value;
+      const password = passwordInput.value;
+  
+      // Check if there's user data in local storage
+      const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
+  
+      // Check if the entered username and password match any user data
+      const user = usersData.find((userData) => userData.username === username && userData.password === password);
+  
+      if (user) {
+        // Redirect to the home page when login is successful
+        window.location.href = "/Page/home.html";
+      } else {
+        alert("Invalid email or password. Please check your credentials.");
+      }
     });
-
+  
     forgotPasswordLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        var userEmail = prompt("Enter your email address for password reset:");
-        if (userEmail !== null) {
-            // In a real application, you would send a password reset email to the provided email address.
-            console.log("Password reset email sent to: " + userEmail);
-            alert("Password reset instructions have been sent to your email.");
-        }
+      // Add logic to handle the "Forgot Password?" functionality
+      alert("Forgot Password link clicked");
     });
-});
+  });
+  
+  
+  
+
+
 
 
 
