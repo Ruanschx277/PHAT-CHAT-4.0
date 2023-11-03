@@ -13,6 +13,7 @@ $(document).ready(function() {
       title: "Thor Love and Thunder",
       description: "Thor Finds his Long lost love. Teaming up with Alien friends and fighting a new Dangerous Evil God.",
       imageLocation: "../Images/TLAT.jpg"
+
 ,
       imageLocation: "../Images/TLAT.jpg"
       imageLocation: "../Images/avangers.jpg"
@@ -84,6 +85,8 @@ $(document).ready(function() {
 });
 
 
+
+
       },
       {
       id: 3,
@@ -93,39 +96,6 @@ $(document).ready(function() {
     }
   ];
 
-
-  function createMovieCard(movie) {
-    return `
-      <div class="card">
-        <img src=${movie.imageLocation} class="card-img-top" alt="Card Image">
-        <div class="card-body">
-          <h5 class="card-title">${movie.title}</h5>
-          <p class="card-text">${movie.description}</p>
-          <button class="btn btn-primary addWatch" data-id="${movie.id}">Add to Watchlist</button>
-        </div>
-      </div>
-    `;
-  }
-
-  function addMovieCards() {
-    const cardContainer = $("#card-container");
-    cardContainer.empty(); // Clear the container first
-
-    movieData.forEach(function(movie) {
-      const card = createMovieCard(movie);
-      cardContainer.append(card);
-    });
-
-    // Attach the click event to the "Add to Watchlist" buttons
-    cardContainer.on("click", ".addWatch", function() {
-      const movieId = $(this).data("id");
-      addToWatchlist(movieId);
-    });
-  }
-      description: "Together, these young friends embark on a thrilling and perilous quest to find the hidden treasure of the legendary pirate One-Eyed Willy.",
-      imageLocation: "../Images/Goonies.jpg"
-    }
-  ];
 
   function createMovieCard(movie) {
     return `
@@ -174,7 +144,6 @@ $(document).ready(function() {
     }
   }
 
-  // Call functions to initialize the page
   addMovieCards();
 });
 

@@ -2,29 +2,54 @@
 const signupForm = document.getElementById("signup-form");
 const signupButton = document.getElementById("signup-button");
 
-signupButton.addEventListener("click", function() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+document.addEventListener("DOMContentLoaded", function () {
+  const signUpForm = document.querySelector("form");
 
-    if (localStorage.getItem(username) !== null) {
-        alert("Username already exists. Please choose a different one.");
-        return;
-    }
+  signUpForm.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    localStorage.setItem(username, password);
-    alert("Sign-up successful! You can now sign in.");
+      const usernameInput = document.querySelector("input[name='Username']");
+      const emailInput = document.querySelector("input[name='email']");
+      const passwordInput = document.querySelector("input[name='password']");
+      const confirmPasswordInput = document.querySelector("input[name='password']");
+      const checkbox = document.querySelector("input[type='checkbox']");
+
+      const username = usernameInput.value;
+      const email = emailInput.value;
+      const password = passwordInput.value;
+      const confirmPassword = confirmPasswordInput.value;
+      const agreedToTerms = checkbox.checked;
+
+      if (username.trim() === "" || email.trim() === "" || password.trim() === "" || confirmPassword.trim() === "") {
+          alert("Please fill in all the required fields.");
+          return;
+      }
+
+      if (password !== confirmPassword) {
+          alert("Password and confirm password do not match.");
+          return;
+      }
+
+      if (!agreedToTerms) {
+          alert("Please agree to the terms and conditions.");
+          return;
+      }
+
+      // Redirect to the sign-in page with the correct root-relative path
+      window.location.href = "/Page/Sign In.html";
+  });
 });
 
 
-const signinForm = document.getElementById("signin-form");
-const signinButton = document.getElementById("signin-button");
+
+  
 
 
-signinButton.addEventListener("click", function() {
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
 
-    const storedPassword = localStorage.getItem(username);
+
+
+
+
 
     if (storedPassword === password) {
         alert("Sign-in successful!");
@@ -92,5 +117,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   
+
 
 
