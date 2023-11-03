@@ -1,76 +1,54 @@
+document.addEventListener("DOMContentLoaded", function () {
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.getElementById("login-button");
+  const forgotPasswordLink = document.getElementById("forgot-password-link");
 
-function handleFormSubmit(event) {
-    event.preventDefault(); 
- 
-    const username = document.getElementById("username").value;
-    const password = document.getElementById("password").value;
+  loginButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
 
- 
-    fetch("authenticate.php", {
-        method: "POST",
-        body: JSON.stringify({ username, password }),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.authenticated) {
-               
-                window.location.href = "/Page/HOME.HTML"; 
-            } else {
-               
-                alert("Authentication failed. Please check your username and password.");
-            }
-        })
-        .catch(error => {
-            console.error("Error: ", error);
-        });
-}
+    // Check if there's user data in local storage
+    const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
 
+    // Check if the entered username and password match any user data
+    const user = usersData.find((userData) => userData.username === username && userData.password === password);
 
-const signinForm = document.getElementById("signin-form");
-if (signinForm) {
-    signinForm.addEventListener("submit", handleFormSubmit);
-}
+    if (user) {
+      // Mark the user as logged in by storing a flag in local storage
+      localStorage.setItem("isLoggedIn", "true");
 
-
-
-
-function validateForm() {
-    var username = document.getElementById('username').value;
-    var password = document.getElementById('password').value;
-
-
-    if (username === "" || password === "") {
-        alert("Username and password are required");
-        return false;
+      // Redirect to the home page when login is successful
+      window.location.href = "/Page/HOME.HTML";
+    } else {
+      alert("Invalid email or password. Please try again.");
     }
+  });
 
- 
-    var userData = {
-        username: username,
-        password: password
-    };
-    localStorage.setItem('userData', JSON.stringify(userData));
+  forgotPasswordLink.addEventListener("click", function (event) {
+    // Add logic to handle the "Forgot Password?" functionality
+    alert("Forgot Password link clicked");
+  });
 
-
-    window.location.href = "/Page/HOME.HTML"; 
-
-    return false; 
-}
-
-const apiUrl = '';
-
-$.ajax({
-    url: apiUrl,
-    method: 'GET',
-    dataType: 'json',
-    success: function(data) {
-     
-        console.log(data);
-    },
-    error: function(error) {
-        console.error('Error:', error);
-    }
+  // Check if the user is already logged in
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    // Redirect to the home page
+    window.location.href = "/Page/HOME.HTML";
+  }
 });
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
+
