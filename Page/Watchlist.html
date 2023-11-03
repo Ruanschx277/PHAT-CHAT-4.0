@@ -8,58 +8,34 @@
     <link rel="stylesheet" href="../CSS/WatchList.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> 
     <script src="/JS/watchList.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Add this line -->
-    <script src="/JS/watchList.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 <body onload = "displayMovie()">
-    <nav>
-        <div class = "PageLogo">
-            <a href = "HOME.HTML"><img src = "../WatchList Assets/Logo.png"  alt = "logo" width = "100px"></a>
-        </div>
-
-        <div class = "nav-con">
-            <ul>
-                <a><li class = "active"> Popular </li></a>
-                <a><li> Categories </li></a>
-                <a><li> Users </li></a>
-            </ul>
-        </div>
-    </nav>
-
-    <div class = "container">
-        <div class = "row">
-            <img src = "../WatchList Assets/LiveIcon.png"  alt = "live" width = "50px"><h2>Live</h2>
-        </div>
-
-        <div class = "row">
-            <img src = "../WatchList Assets/ChannelsIcon.png"  alt = "channels" width = "50px"><h2>Channels</h2>
-        </div>
-
-        <div class = "row">
-            <img src = "../WatchList Assets/LatestIcon.png"  alt = "latest" width = "50px"><h2>Latest</h2>
-        </div>
-
-        <div class = "row">
-            <img src = "../WatchList Assets/SettingsIcon.png"  alt = "settings" width = "40px"><h2>Settings</h2>
-        </div>
-    </div>
-
-    <div class = "container">
-        <div class = "row">
-            <div class="card-container" id="card-container">
-                <div id = "watchlist">
+    <nav class="navbar navbar-expand-lg navbar-light bg-orange fixed-top">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="#!">PhatChat TV</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
+                            <li><hr class="dropdown-divider" /></li>
+                            <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                            <li><a class="dropdown-item" href="#!">Contact Us</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="d-flex">
+                  <a class="btn btn-outline-dark custom-signup-btn" href="/Page/Sign In.html">
+                    Sign Up/Login
+                  </a>
                 </div>
-              </div>
+            </div>
         </div>
-    </div>
-
-
-
-
-
-
-
-
-    
+      </nav>
 </body>
 </html>
