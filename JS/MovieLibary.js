@@ -1,111 +1,288 @@
-  const apiKey = 'd0201974ce90691a745764523e00022b';
-  const baseUrl = 'https://api.themoviedb.org/3';
-  
-  const baseImageUrl = 'https://image.tmdb.org/t/p';
-  
-  const movieList = [];
-  
-  function fetchMoviesByPage(page) {
-    const discoverUrl = `${baseUrl}/discover/movie?api_key=${apiKey}&page=${page}`;
-      
-    return fetch(discoverUrl)
-      .then(response => response.json())
-      .then(data => data.results);
+// Define the displayMovie function
+function displayMovie() {
+  const apiKey = '5a944ddc';
+  const baseUrl = 'http://www.omdbapi.com/';
+
+  function fetchMoviesWithRatingsAndGenreAndPlot(page) {
+    return fetch(`${baseUrl}?apikey=${apiKey}&s=movie&page=${page}`)
+      .then((response) => response.json())
+      .then((data) => data.Search || []);
   }
-    
-  const numberOfPages = 5;
+
+  function fetchMovieDetails(imdbID) {
+    return fetch(`${baseUrl}?apikey=${apiKey}&i=${imdbID}`)
+      .then((response) => response.json());
+  }
+
+  function fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot() {
+    const movieArray = [];
+    const numberOfPages = 3;
+    const fetchPromises = [];
+
     for (let page = 1; page <= numberOfPages; page++) {
-      fetchMoviesByPage(page)
-        .then(movies => {
-          movieList.push(...movies);
-          
-          if (page === numberOfPages) {
-            const movieNames = movieList.map(movie => movie.title);
-          }
-        })
-        .catch(error => {
-          console.error('Error:', error);
+      const promise = fetchMoviesWithRatingsAndGenreAndPlot(page)
+        .then(async (movies) => {
+          // Fetch IMDb rating, plot, and genre for each movie
+          const moviesWithDetails = await Promise.all(
+            movies.map(async (movie) => {
+              const details = await fetchMovieDetails(movie.imdbID);
+              return { ...movie, imdbRating: details.imdbRating, Plot: details.Plot, Genre: details.Genre };
+            })
+          );
+          movieArray.push(...moviesWithDetails);
         });
+      fetchPromises.push(promise);
     }
-  
-  console.log('Movie Names:', movieList);
-  
-      displayMovie = () => {
-        let cardContainer = $("#card-container");
-        cardContainer.empty();
-      
-        for (let i = 0; i < movieList.length; i++) {
-            const card = `
-            <div class="col mb-5" style="max-width: 21rem">
-            <div class="card h-100 d-flex flex-column custom-card-bg text-white" style="background-color: #333;">
-                <img class="card-img-top" src="${baseImageUrl}/w500${movieList[i].poster_path}" alt="..." style="max-width: 100%; max-height: 100%;">
-                <div class="card-body p-4">
-                    <div class="text-center">
-                        <h4 class="fw-bolder text-white">${movieList[i].title}</h4>
-                        <p>${movieList[i].overview}</p>
-                    </div>
-                </div>
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-orange btn-lg btn-block text-white" href="#" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px">Play Movie</a>
-                <a class="btn btn-orange btn-lg btn-block text-white addWatch" data-id="${movieList[i].id}" style="background-color: #F25C54; width: 18rem">Watch List</a>
-                </div>
+
+    return Promise.all(fetchPromises).then(() => movieArray);
+  }
+
+  function displayMovieArrayWithRatingsAndGenreAndPlot(movieArray) {
+    let cardContainer = $('#card-container');
+    cardContainer.empty();
+
+    for (let i = 0; i < movieArray.length; i++) {
+      const card = `
+        <div class="col mb-5" style="max-width: 21rem">
+          <div class="card h-100 d-flex flex-column custom-card-bg text-white" style="background-color: #333;">
+            <img class="card-img-top" src="${movieArray[i].Poster}" alt="${movieArray[i].Title}" style="max-width: 100%; max-height: 100%;">
+            <div class="card-body p-4">
+              <div class="text-center">
+                <h4 class="fw-bolder text-white">${movieArray[i].Title}</h4>
+                <p>IMDb Rating: ${movieArray[i].imdbRating}</p>
+                <p>Genre: ${movieArray[i].Genre}</p>
+                <p>Year: ${movieArray[i].Year}</p>
+                <p>${movieArray[i].Plot}</p>
+              </div>
             </div>
+            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
+              <a class="btn btn-orange btn-lg btn-block text-white" href="#" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px">Play Movie</a>
+              <a class="btn btn-orange btn-lg btn-block text-white addWatch" data-id="${movieArray[i].imdbID}" style="background-color: #F25C54; width: 18rem">Watch List</a>
+            </div>
+          </div>
         </div>
-        
-            `;
-            cardContainer.append(card);
-          }
-          cardContainer.on("click", ".addWatch", function() {
-            console.log($(this).data("id"))
-            const movieId = $(this).data("id");
-            addToWatchList(movieId);
-          });
-        };
-    
-  
-  $(document).ready(function() {
-    displayMovie();
-  });
-  
-  function addToWatchList(movieId) {
+      `;
+      cardContainer.append(card);
+    }
+
+    cardContainer.on("click", ".addWatch", function() {
+      const movieId = $(this).data("id");
+      addToWatchList(movieId, movieArray); // Pass movieArray as a parameter
+    });
+  }
+
+  // Updated addToWatchList function
+  function addToWatchList(movieId, movieArray) {
     const watchList = JSON.parse(localStorage.getItem("watchlist")) || [];
-    
-    if (watchList.includes(movieId)) {
+
+    if (watchList.some((movie) => movie.imdbID === movieId)) {
       alert("This movie is already in your watchlist.");
     } else {
-      // Check if the movieId is not already in the watchlist
-      const isUnique = movieList.every((movie) => !watchList.includes(movie.id));
-  
-      if (isUnique) {
-        const movieDetails = movieList.find((movie) => movie.id === movieId);
-        watchList.push(movieId);
+      const movie = movieArray.find((m) => m.imdbID === movieId);
+
+      if (movie) {
+        watchList.push(movie); // Push the entire movie object to the watchlist
         localStorage.setItem("watchlist", JSON.stringify(watchList));
-        localStorage.setItem(`movie_${movieId}`, JSON.stringify(movieDetails));
         alert("Movie added to your watchlist!");
       } else {
-        alert("This movie is already in your watchlist.");
+        alert("Movie not found in the list.");
       }
     }
   }
+
+  $(document).ready(function () {
+    fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot()
+      .then(function (movieArray) {
+        displayMovieArrayWithRatingsAndGenreAndPlot(movieArray);
+        // Display the movie array in the console with all the details
+        console.log("Movie Array:", movieArray);
+      });
+
+      let movieArray = []; // Store the original movie data here
+      
+  // Fetch movies and populate movieArray
+  fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot()
+    .then(function (movies) {
+      movieArray = movies; // Populate the movieArray with the fetched data
+      displayMovieArrayWithRatingsAndGenreAndPlot(movieArray);
+    });
+
+  // Function to filter and display movies
+  function loadFilteredMovies(filteredMovies) {
+    displayMovieArrayWithRatingsAndGenreAndPlot(filteredMovies);
+  }
+
+  $("#allMovies").on("click", function () {
+    location.reload();
+  });
   
+  $("#comedy").on("click", function () {
+    const selectedGenre = "Comedy";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
 
+  $("#adventure").on("click", function () {
+    const selectedGenre = "Adventure";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
 
-    /*Back to top button*/
-// window.onscroll = function() {
-//   scrollFunction();
-// };
+  $("#fantasy").on("click", function () {
+    const selectedGenre = "Fantasy";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
 
-// function scrollFunction() {
-//   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-//     document.getElementById("back-to-top-button").style.display = "block";
-//   } else {
-//     document.getElementById("back-to-top-button").style.display = "none";
-//   }
-// }
+  $("#animation").on("click", function () {
+    const selectedGenre = "Animation";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
 
-// function scrollToTop() {
-//   document.body.scrollTop = 0; // For Safari
-//   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE, and Opera
-// }
+  $("#action").on("click", function () {
+    const selectedGenre = "Action";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
 
+  $("#documentary").on("click", function () {
+    const selectedGenre = "Documentary";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#drama").on("click", function () {
+    const selectedGenre = "Drama";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#scifi").on("click", function () {
+    const selectedGenre = "Sci-Fi";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#horror").on("click", function () {
+    const selectedGenre = "Horror";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#crime").on("click", function () {
+    const selectedGenre = "Crime";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#romance").on("click", function () {
+    const selectedGenre = "Romance";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#family").on("click", function () {
+    const selectedGenre = "Family";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#music").on("click", function () {
+    const selectedGenre = "Music";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#western").on("click", function () {
+    const selectedGenre = "Western";
+    const filteredMovies = movieArray.filter(movie => movie.Genre.includes(selectedGenre));
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#two").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => parseFloat(movie.imdbRating) <= 2.0);
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#four").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const imdbRating = parseFloat(movie.imdbRating);
+      return imdbRating >= 2.1 && imdbRating <= 4.0;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#six").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const imdbRating = parseFloat(movie.imdbRating);
+      return imdbRating >= 4.1 && imdbRating <= 6.0;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#eight").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const imdbRating = parseFloat(movie.imdbRating);
+      return imdbRating >= 6.1 && imdbRating <= 8.0;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#ten").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const imdbRating = parseFloat(movie.imdbRating);
+      return imdbRating >= 8.1 && imdbRating <= 10.0;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsOne").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const Year = parseInt(movie.Year);
+      return Year >= 1995 && Year <= 2000;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsTwo").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const Year = parseInt(movie.Year);
+      return Year >= 2001 && Year <= 2005;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsThree").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const Year = parseInt(movie.Year);
+      return Year >= 2006 && Year <= 2010;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsFour").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const Year = parseInt(movie.Year);
+      return Year >= 2011 && Year <= 2015;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsFive").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => {
+      const Year = parseInt(movie.Year);
+      return Year >= 2016 && Year <= 2020;
+    });
+    loadFilteredMovies(filteredMovies);
+  });
+
+  $("#yearsSix").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => parseInt(movie.Year) >= 2020);
+    loadFilteredMovies(filteredMovies);
+  });
   
+  }
+  );
+}
+
