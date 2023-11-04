@@ -106,5 +106,8 @@ function displayMovie() {
       movieArray = movies; // Populate the movieArray with the fetched data
       displayMovieArray(movieArray);
     });
-  })}
+  
+  }
+  );
+}
 

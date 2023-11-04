@@ -5,6 +5,8 @@ function displayWatchList() {
     cardContainer.empty();
 
     for (let i = 0; i < selectedMovie.length; i++) {
+      const imdbID = selectedMovie[i].imdbID;
+      const removeButton = `<button class="btn btn-danger removeWatch" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px" data-id="${imdbID}">Remove</button>`;
       const card = `
         <div class="col mb-5" style="max-width: 21rem">
           <div class="card h-100 d-flex flex-column custom-card-bg text-white" style="background-color: #333;">
@@ -19,8 +21,7 @@ function displayWatchList() {
               </div>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-              <a class="btn btn-orange btn-lg btn-block text-white" href="#" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px">Play Movie</a>
-              <a class="btn btn-orange btn-lg btn-block text-white addWatch" data-id="${selectedMovie[i].imdbID}" style="background-color: #F25C54; width: 18rem">Watch List</a>
+            ${removeButton}
             </div>
           </div>
         </div>
@@ -29,8 +30,22 @@ function displayWatchList() {
     }
 
     
-    // cardContainer.on("click", ".addWatch", function() {
-    //   const movieId = $(this).data("id");
-    //   addToWatchList(movieId, selectedMovie); // Pass movieArray as a parameter
-    // });
+    cardContainer.on("click", ".removeWatch", function() {
+      const imdbID = $(this).data("id");
+
+      const watchlistJSON = localStorage.getItem("watchlist");
+    
+      if (watchlistJSON) {
+        let watchList = JSON.parse(watchlistJSON);
+    
+        watchList = watchList.filter((item) => item.imdbID !== imdbID);
+    
+        const updatedWatchlistJSON = JSON.stringify(watchList);
+    
+        localStorage.setItem("watchlist", updatedWatchlistJSON);
+      }
+    
+      displayWatchList();
+    });
+    
 }
