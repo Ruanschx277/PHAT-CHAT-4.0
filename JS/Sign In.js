@@ -1,32 +1,54 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const signInForm = document.querySelector(".signin-form");
-    const usernameInput = document.querySelector("input[placeholder='Username']");
-    const passwordInput = document.querySelector("input[placeholder='Password']");
-    const forgotPasswordLink = document.getElementById("forgot-password-link");
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.getElementById("login-button");
+  const forgotPasswordLink = document.getElementById("forgot-password-link");
 
-    signInForm.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const username = usernameInput.value;
-        const password = passwordInput.value;
+  loginButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
 
-        // Retrieve user data from local storage
-        const storedUserData = JSON.parse(localStorage.getItem(username));
+    // Check if there's user data in local storage
+    const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
 
-        if (storedUserData && storedUserData.password === password) {
-            // Redirect to the home page after successful login
-            window.location.href = "/Page/home.html";
-        } else {
-            alert("Invalid username or password. Please try again.");
-        }
-    });
+    // Check if the entered username and password match any user data
+    const user = usersData.find((userData) => userData.username === username && userData.password === password);
 
-    forgotPasswordLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        var userEmail = prompt("Enter your email address for password reset:");
-        if (userEmail !== null) {
-            console.log("Password reset email sent to: " + userEmail);
-            alert("Password reset instructions have been sent to your email.");
-        }
-    });
+    if (user) {
+      // Mark the user as logged in by storing a flag in local storage
+      localStorage.setItem("isLoggedIn", "true");
+
+      // Redirect to the home page when login is successful
+      window.location.href = "/Page/HOME.HTML";
+    } else {
+      alert("Invalid email or password. Please try again.");
+    }
+  });
+
+  forgotPasswordLink.addEventListener("click", function (event) {
+    // Add logic to handle the "Forgot Password?" functionality
+    alert("Forgot Password link clicked");
+  });
+
+  // Check if the user is already logged in
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    // Redirect to the home page
+    window.location.href = "/Page/HOME.HTML";
+  }
 });
+
+
+
+  
+  
+  
+
+
+
+
+
+
+  
+
 
