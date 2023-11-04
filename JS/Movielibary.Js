@@ -3,7 +3,7 @@ function displayMovie() {
   const apiKey = '5a944ddc';
   const baseUrl = 'http://www.omdbapi.com/';
 
-  function fetchMoviesWithRatingsAndGenreAndPlot(page) {
+  function fetchMovies(page) {
     return fetch(`${baseUrl}?apikey=${apiKey}&s=movie&page=${page}`)
       .then((response) => response.json())
       .then((data) => data.Search || []);
@@ -14,13 +14,13 @@ function displayMovie() {
       .then((response) => response.json());
   }
 
-  function fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot() {
+  function fetchMultipleMovies() {
     const movieArray = [];
     const numberOfPages = 3;
     const fetchPromises = [];
 
     for (let page = 1; page <= numberOfPages; page++) {
-      const promise = fetchMoviesWithRatingsAndGenreAndPlot(page)
+      const promise = fetchMovies(page)
         .then(async (movies) => {
           // Fetch IMDb rating, plot, and genre for each movie
           const moviesWithDetails = await Promise.all(
@@ -37,7 +37,7 @@ function displayMovie() {
     return Promise.all(fetchPromises).then(() => movieArray);
   }
 
-  function displayMovieArrayWithRatingsAndGenreAndPlot(movieArray) {
+  function displayMovieArray(movieArray) {
     let cardContainer = $('#card-container');
     cardContainer.empty();
 
@@ -91,9 +91,9 @@ function displayMovie() {
   }
 
   $(document).ready(function () {
-    fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot()
+    fetchMultipleMovies()
       .then(function (movieArray) {
-        displayMovieArrayWithRatingsAndGenreAndPlot(movieArray);
+        displayMovieArray(movieArray);
         // Display the movie array in the console with all the details
         console.log("Movie Array:", movieArray);
       });
@@ -101,15 +101,15 @@ function displayMovie() {
       let movieArray = []; // Store the original movie data here
       
   // Fetch movies and populate movieArray
-  fetchMoviesFromMultiplePagesWithRatingsAndGenreAndPlot()
+  fetchMultipleMovies()
     .then(function (movies) {
       movieArray = movies; // Populate the movieArray with the fetched data
-      displayMovieArrayWithRatingsAndGenreAndPlot(movieArray);
+      displayMovieArray(movieArray);
     });
 
   // Function to filter and display movies
   function loadFilteredMovies(filteredMovies) {
-    displayMovieArrayWithRatingsAndGenreAndPlot(filteredMovies);
+    displayMovieArray(filteredMovies);
   }
 
   $("#allMovies").on("click", function () {
@@ -200,12 +200,12 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#two").on("click", function () {
+  $("#ratingToTwo").on("click", function () {
     const filteredMovies = movieArray.filter(movie => parseFloat(movie.imdbRating) <= 2.0);
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#four").on("click", function () {
+  $("#ratingToFour").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const imdbRating = parseFloat(movie.imdbRating);
       return imdbRating >= 2.1 && imdbRating <= 4.0;
@@ -213,7 +213,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#six").on("click", function () {
+  $("#ratingToSix").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const imdbRating = parseFloat(movie.imdbRating);
       return imdbRating >= 4.1 && imdbRating <= 6.0;
@@ -221,7 +221,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#eight").on("click", function () {
+  $("#ratingToEight").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const imdbRating = parseFloat(movie.imdbRating);
       return imdbRating >= 6.1 && imdbRating <= 8.0;
@@ -229,7 +229,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#ten").on("click", function () {
+  $("#ratingToTen").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const imdbRating = parseFloat(movie.imdbRating);
       return imdbRating >= 8.1 && imdbRating <= 10.0;
@@ -237,7 +237,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsOne").on("click", function () {
+  $("#1995-2000").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const Year = parseInt(movie.Year);
       return Year >= 1995 && Year <= 2000;
@@ -245,7 +245,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsTwo").on("click", function () {
+  $("#2001-2005").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const Year = parseInt(movie.Year);
       return Year >= 2001 && Year <= 2005;
@@ -253,7 +253,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsThree").on("click", function () {
+  $("#2006-2010").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const Year = parseInt(movie.Year);
       return Year >= 2006 && Year <= 2010;
@@ -261,7 +261,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsFour").on("click", function () {
+  $("#2011-2015").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const Year = parseInt(movie.Year);
       return Year >= 2011 && Year <= 2015;
@@ -269,7 +269,7 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsFive").on("click", function () {
+  $("#2016-2020").on("click", function () {
     const filteredMovies = movieArray.filter(movie => {
       const Year = parseInt(movie.Year);
       return Year >= 2016 && Year <= 2020;
@@ -277,8 +277,8 @@ function displayMovie() {
     loadFilteredMovies(filteredMovies);
   });
 
-  $("#yearsSix").on("click", function () {
-    const filteredMovies = movieArray.filter(movie => parseInt(movie.Year) >= 2020);
+  $("#2021").on("click", function () {
+    const filteredMovies = movieArray.filter(movie => parseInt(movie.Year) >= 2021);
     loadFilteredMovies(filteredMovies);
   });
   

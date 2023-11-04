@@ -16,43 +16,41 @@
 </head>
 <body  onload = "displayMovie()">
 <!-- Nav Bar -->
+<header>
 <nav class="navbar navbar-expand-lg navbar-light bg-orange fixed-top">
   <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="#!">PhatChat TV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <a class="navbar-brand" href="#!">PhatChat TV</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
-                      <li><a class="dropdown-item" href="#!">Contact Us</a></li>
-                  </ul>
-              </li>
-          </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                <li><a class="dropdown-item" href="#!">Contact Us</a></li>
+              </ul>
+            </li>
+        </ul>
           <div class="d-flex">
             <a class="btn btn-outline-dark custom-signup-btn" href="/Page/Sign In.html">
               Sign Up/Login
             </a>
           </div>
-
-      </div>
-  </div>
-</nav>
+        </div>
+    </div>
+  </nav>
+</header>
 <!-- Nav Bar -->
 <!--Library-->
-
-
-<div class="container px-4 px-lg-5 mt-5">
-
-  <button id = "allMovies">All Movies</button>
+<div class="buttonContainer">
+  <button  class = "btn" id = "allMovies" style="margin-left: 20px;">All Movies</button>
 
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
       Genre
     </button>
     <ul class="dropdown-menu" aria-labelledby="genreButton">
@@ -72,54 +70,50 @@
       <li><a class="dropdown-item" id="western">Western</a></li>
     </ul>
   </div>
-</div>
 
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
-    IMDb Score
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="genreButton">
-    <li><a class="dropdown-item" id="two">0.0 - 2.0</a></li>
-    <li><a class="dropdown-item" id="four">2.1 - 4.0</a></li>
-    <li><a class="dropdown-item" id="six">4.1 - 6.0</a></li>
-    <li><a class="dropdown-item" id="eight">6.1 - 8.0</a></li>
-    <li><a class="dropdown-item" id="ten">8.1 - 10.0</a></li>
-  </ul>
-</div>
-</div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+      IMDb Score
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="genreButton">
+      <li><a class="dropdown-item" id="ratingToTwo">0.0 - 2.0</a></li>
+      <li><a class="dropdown-item" id="ratingtoFour">2.1 - 4.0</a></li>
+      <li><a class="dropdown-item" id="ratingToSix">4.1 - 6.0</a></li>
+      <li><a class="dropdown-item" id="ratingToEight">6.1 - 8.0</a></li>
+      <li><a class="dropdown-item" id="ratingToTen">8.1 - 10.0</a></li>
+    </ul>
+  </div>
 
-<div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
-    Year
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="genreButton">
-    <li><a class="dropdown-item" id="yearsOne">1995 - 2000</a></li>
-    <li><a class="dropdown-item" id="yearsTwo">2001 - 2005</a></li>
-    <li><a class="dropdown-item" id="yearsThree">2006 - 2010</a></li>
-    <li><a class="dropdown-item" id="yearsFour">2011 - 2015</a></li>
-    <li><a class="dropdown-item" id="yearsFive">2016 - 2020</a></li>
-    <li><a class="dropdown-item" id="yearsSix">2020+</a></li>
-  </ul>
-</div>
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Year
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="genreButton">
+      <li><a class="dropdown-item" id="1995-2000">1995 - 2000</a></li>
+      <li><a class="dropdown-item" id="2001-2005">2001 - 2005</a></li>
+      <li><a class="dropdown-item" id="2006-2010">2006 - 2010</a></li>
+      <li><a class="dropdown-item" id="2011-2015">2011 - 2015</a></li>
+      <li><a class="dropdown-item" id="2016-2020">2016 - 2020</a></li>
+      <li><a class="dropdown-item" id="2021">2021+</a></li>
+    </ul>
+  </div>
 </div>
 
   
- <div class = "cardContainer">
+ <div class = "cardContainer" style="height: fit-content; background-color: #2D232E; width: 100%">
   <div class = "row">
       <div class="card-container" id="card-container">
-          <div id = "watchlist">
-          </div>
-        </div>
+      </div>
     </div>
 </div>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
-  <div class="container">
+<footer class="py-5">
+  <div class="container" style="height: 300px; width: 100%;" >
       <p class="m-0 text-center text-white">Copyright &copy; PhatChatTV 2023</p>
   </div>
 </footer>
 <!--Back to Top button-->
-<button class="btn" id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
+<button class="btn" id="backToTopBtn" style="margin-left: 20px;" onclick="scrollToTop()">Back to Top</button>
 </body>
 </html>

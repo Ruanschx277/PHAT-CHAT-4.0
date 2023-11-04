@@ -1,8 +1,7 @@
  
 body {
-  background-color: #2D232E; /* Use your desired background color */
+  background-color: #2D232E;
 }
-
 
 /* Navigation bar color and spacing */
 .bg-orange {
@@ -32,6 +31,9 @@ body {
 background-color: #534b52; /* Change this to your desired button color */
 border-color: #e0ddef; /* Change this to match the button color */
 color: #fff; /* Text color */
+display: inline-block;
+float: left;
+margin-right: 20px;
 }
 
 #back-to-top-button {
@@ -116,4 +118,11 @@ color: #fff; /* Text color on hover */
 
 .card-text {
   margin-top: 10px;
+}
+
+.buttonContainer
+{
+  height: fit-content;
+  width: 100%;
+  padding-top: 100px;
 }
