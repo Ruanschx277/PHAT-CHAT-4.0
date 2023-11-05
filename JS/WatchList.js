@@ -10,7 +10,9 @@ function displayWatchList() {
       const card = `
         <div class="col mb-5" style="max-width: 21rem">
           <div class="card h-100 d-flex flex-column custom-card-bg text-white" style="background-color: #333;">
+        <a href = "SingleFilms.html">
             <img class="card-img-top" src="${selectedMovie[i].Poster}" alt="${selectedMovie[i].Title}" style="max-width: 100%; max-height: 100%;">
+        </a>
             <div class="card-body p-4">
               <div class="text-center">
                 <h4 class="fw-bolder text-white">${selectedMovie[i].Title}</h4>
