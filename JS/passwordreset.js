@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     resetPasswordForm.addEventListener("submit", function(event) {
         event.preventDefault(); // Prevent the default form submission behavior
 
+        // Get the email input value
         const email = document.getElementById("email").value;
 
         alert(`A password reset link will be sent to ${email}.`);
