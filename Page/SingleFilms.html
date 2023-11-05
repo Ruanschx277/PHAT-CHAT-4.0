@@ -7,34 +7,42 @@
     <meta name="author" content="group3">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="/CSS/styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="script.js"></script>
+    <script src="/JS/script.js"></script>
 
     <title id="movietitle"> Single </title>
 </head>
 <body onload="singleloader()">
-    <!--Navbar-->
-    <div id="navbar" class="container-fluid">
-        <div class="row">
-            <div class="col-md-3" style="background: color blue;"> 
-                <div>
-                    <a href="HOME.HTML">
-                    <img id="logo" class="left" src="Assets/Logo variations/original filled.png" height="45">
-                    <h3 id="logoheading" class="left">PHAT CHAT</h3> 
-                    </a>
-                </div>
-            </div> 
-            <div class="col-xs-2 nav" style="background-color:#ca9b37;"> <a href="HOME.HTML"> Home </a> </div>
-            <div class="col-xs-2 nav" style="background-color:#ca9b37;"> <a href="Movie Library.html"> Library </a> </div>  
-            <div class="col-xs-2 nav" style="background-color:#ca9b37;"> <a href="Watchlist.html"> Watchlist </a> </div>
-            <div class="col-sm-2 nav" style="background-color:#ca9b37;"> <a href="login.html"> Log-In </a> </div>
-            <div class="col-sm-1 nav" style="background-color:#ca9b37;">
-                <img id="profilebutton" src="Assets/Icons/user (1).png" height="40">
-            </div>  
+    <!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-orange fixed-top">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">PhatChat TV</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                        <li><a class="dropdown-item" href="#!">Contact Us</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="d-flex">
+              <a class="btn btn-outline-dark custom-signup-btn" href="/Page/Sign In.html">
+                Sign Up/Login
+              </a>
+            </div>
+  
         </div>
     </div>
+  </nav>
+  <!-- Nav Bar -->
     
     <!--Movie-->
     <div id="MainMovieContainer">
@@ -89,19 +97,19 @@
         <div class="row" id="MoviesList">
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie1" src="" height="100px" width="100px">
+                    <img id="sparemovie1" src="/Images/Barbie.jpeg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle1">Movie Title</h2>
+                    <h2 id="sparetitle1">Barbie</h2>
                 </div>
             </div>
 
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie2" src="" height="100px" width="100px">
+                    <img id="sparemovie2" src="/Images/DrWho.jpeg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle12">Movie Title</h2>
+                    <h2 id="sparetitle12">Dr Who</h2>
                 </div>
             </div>
         </div>
@@ -109,65 +117,65 @@
         <div class="row" id="MoviesList">
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie3" src="" height="100px" width="100px">
+                    <img id="sparemovie3" src="/Images/Geekchic.jpg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle3">Movie Title</h2>
+                    <h2 id="sparetitle3">Geek Chic</h2>
                 </div>
             </div>
 
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie4" src="" height="100px" width="100px">
+                    <img id="sparemovie4" src="/Images/Halloween1978.jpeg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle4">Movie Title</h2>
+                    <h2 id="sparetitle4">Halloween 1978</h2>
                 </div>
             </div>
         </div>
         <div class="row" id="MoviesList">
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie5" src="" height="100px" width="100px">
+                    <img id="sparemovie5" src="/Images/HarryPotter.jpg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle5">Movie Title</h2>
+                    <h2 id="sparetitle5">Harry Potter</h2>
                 </div>
             </div>
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie6" src="" height="100px" width="100px">
+                    <img id="sparemovie6" src="/Images/Jurassic park.jpeg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle6">Movie Title</h2>
-                </div>
-            </div>
-        </div>
-        <div class="row" id="MoviesList">
-            <div class="MovieCard col-lg-6">
-                <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie7" src="" height="100px" width="100px">
-                </div>
-                <div>
-                    <h2 id="sparetitle7">Movie Title</h2>
-                </div>
-            </div>
-            <div class="MovieCard col-lg-6">
-                <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie8" src="" height="100px" width="100px">
-                </div>
-                <div>
-                    <h2 id="sparetitle8">Movie Title</h2>
+                    <h2 id="sparetitle6">Jurrasic Park</h2>
                 </div>
             </div>
         </div>
         <div class="row" id="MoviesList">
             <div class="MovieCard col-lg-6">
                 <div class="left" style="margin-right: 4%;">
-                    <img id="sparemovie9" src="" height="100px" width="100px">
+                    <img id="sparemovie7" src="/Images/Matrix.jpeg" height="100px" width="100px">
                 </div>
                 <div>
-                    <h2 id="sparetitle9">Movie Title</h2>
+                    <h2 id="sparetitle7">Matrix</h2>
+                </div>
+            </div>
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie8" src="/Images/shrek.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle8">Shrek</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie9" src="/Images/theGodFather.jpeg" src="TMDB log in info.txt" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle9">The GodFather</h2>
                 </div>
             </div>
             <div class="MovieCard col-lg-6">
