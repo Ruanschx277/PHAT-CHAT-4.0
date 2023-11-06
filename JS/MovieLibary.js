@@ -56,7 +56,7 @@ function displayMovie() {
               </div>
             </div>
             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-              <a class="btn btn-orange btn-lg btn-block text-white" href="#" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px">Play Movie</a>
+              <a class="btn btn-orange btn-lg btn-block text-white" href="../Page/SingleFilms.html" style="background-color: #F25C54; width: 18rem; margin-bottom: 15px">Play Movie</a>
               <a class="btn btn-orange btn-lg btn-block text-white addWatch" data-id="${movieArray[i].imdbID}" style="background-color: #F25C54; width: 18rem">Watch List</a>
             </div>
           </div>
