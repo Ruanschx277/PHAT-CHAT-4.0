@@ -202,3 +202,37 @@ function filterations() {
     }
     
 }
+
+
+function displayMovieData(movies) {
+    let movieHTML = "";
+   
+    movies.forEach(movie => {
+       movieHTML += `
+         <div class="movie">
+           <h2>${movie.title}</h2>
+           <h3>${movie.year}</h3>
+           <h3>${movie.genre}</h3>
+         </div>
+       `;
+    });
+   
+    document.getElementById("movies").innerHTML = movieHTML;
+   }
+
+ // Define the displayMovie function
+function displayMovie() {
+    let movieTitle = document.getElementById('searchbar').value;
+    
+ // Function to load and display single movie details
+ function loadSingleMovieDetails(movieId) {
+    sessionStorage.setItem("movieid", movieId);
+    window.location.href = "../Page/SingleMovies.html";
+  }
+
+   // Add click event to each movie card to load single movie details
+   cardContainer.on("click", ".card", function() {
+    const movieId = $(this).find(".addWatch").data("id");
+    loadSingleMovieDetails(movieId);
+  });
+}
