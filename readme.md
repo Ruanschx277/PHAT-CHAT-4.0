@@ -16,24 +16,14 @@
 
 **phat Chat** Phat chat is a online streaming service,where you can stream all the latest movies by a click of a button...
 
-![Screenshots](/Screenshot/Screenshot%20(245).png)
-![Screenshots](/Screenshot/Screenshot%20(246).png)
-![Screenshots](/Screenshot/Screenshot%20(247).png)
-![Screenshots](/Screenshot/Screenshot%20(248).png)
-![Screenshots](/Screenshot/Screenshot%20(249).png)
-![Screenshots](/Screenshot/Screenshot%20(250).png)
-![Screenshots](/Screenshot/Screenshot%20(251).png)
-![Screenshots](/Screenshot/Screenshot%20(252).png)
-![Screenshots](/Screenshot/Screenshot%20(253).png)
-![Screenshots](/Screenshot/Screenshot%20(254).png)
-![Screenshots](/Screenshot/Screenshot%20(255).png)
-![Screenshots](/Screenshot/Screenshot%20(255).png)
-![Screenshots](/Screenshot/Screenshot%20(256).png)
-![Screenshots](/Screenshot/Screenshot%20(257).png)
-![Screenshots](/Screenshot/Screenshot%20(258).png)
-![Screenshots](/Screenshot/Screenshot%20(259).png)
-![Screenshots](/Screenshot/Screenshot%20(260).png)
-![Screenshots](/Screenshot/Screenshot%20(261).png)
+![Screenshot (300)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/8ab546cb-c287-409c-b864-28ce69810b99)
+![Screenshot (305)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/07e66a58-9541-4d8d-b00a-327e4247a513)
+![Screenshot (304)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/f6a3f7dd-96d9-4b66-9daa-a1725ae1823a)
+![Screenshot (303)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/84741a9b-0a24-49db-916a-bfd2bdcb6f56)
+![Screenshot (302)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/4348bb4b-b870-4364-83ab-0701139f0874)
+![Screenshot (301)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/3c31a965-da3a-4461-a073-b48e434929f5)
+![Screenshot (314)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/d7bb3934-8798-4a15-9055-49ad303fd49f)
+![Screenshot (313)](https://github.com/Ruanschx277/PHAT-CHAT-4.0/assets/125548449/ec96d88b-7bf4-4a90-8cda-2589eeb962ab)
 
 
 ## Installation
