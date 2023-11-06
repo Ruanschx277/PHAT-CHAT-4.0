@@ -4,6 +4,7 @@ $(document).ready(function() {
       id: 1,
       title: "Avengers",
       description: "Action Packed Super Heroes Assemble together to save the World from an Alien Invasion.",
+
       imageLocation: "../Images/14532417_max.jpg",
       imageLocation: "../Images/14532417_max.jpg"
       },
@@ -12,15 +13,23 @@ $(document).ready(function() {
       title: "Thor Love and Thunder",
       description: "Thor Finds his Long lost love. Teaming up with Alien friends and fighting a new Dangerous Evil God.",
       imageLocation: "../Images/TLAT.jpg"
+
 ,
       imageLocation: "../Images/TLAT.jpg"
+      imageLocation: "../Images/avangers.jpg"
+    },
+    {
+      id: 2,
+      title: "Thor Love and Thunder",
+      description: "Thor Finds his Long lost love. Teaming up with Alien friends and fighting a new Dangerous Evil God.",
+      imageLocation: "../Images/thor.jpg"
 
-      },
-      {
+    },
+    {
       id: 3,
       title: "The Goonies",
       description: "Together, these young friends embark on a thrilling and perilous quest to find the hidden treasure of the legendary pirate One-Eyed Willy.",
-      imageLocation: "../Images/Goonies.jpg"
+      imageLocation: "../Images/goonies.jpg"
     }
   ];
 
@@ -52,10 +61,41 @@ $(document).ready(function() {
       addToWatchlist(movieId);
     });
   }
+
+  function addToWatchlist(movieId) {
+    const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+  
+    if (watchlist.includes(movieId)) {
+      alert("This movie is already in your watchlist.");
+    } else {
+      watchlist.push(movieId);
+      localStorage.setItem("watchlist", JSON.stringify(watchlist));
+  
+      // Save the movie details in local storage
+      const movieDetails = movieData.find((movie) => movie.id === movieId);
+  
+      localStorage.setItem(`movie_${movieId}`, JSON.stringify(movieDetails));
+  
+      alert("Movie added to your watchlist!");
+    }
+  }
+
+  // Call functions to initialize the page
+  addMovieCards();
+});
+
+
+
+
+      },
+      {
+      id: 3,
+      title: "The Goonies",
       description: "Together, these young friends embark on a thrilling and perilous quest to find the hidden treasure of the legendary pirate One-Eyed Willy.",
       imageLocation: "../Images/Goonies.jpg"
     }
   ];
+
 
   function createMovieCard(movie) {
     return `
@@ -104,8 +144,8 @@ $(document).ready(function() {
     }
   }
 
-  // Call functions to initialize the page
   addMovieCards();
 });
+
 
 

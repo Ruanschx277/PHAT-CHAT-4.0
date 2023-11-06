@@ -2,12 +2,14 @@
 body, h1, h2, h3, p {
     margin: 0;
     padding: 0;
+  
 }
 
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: #ffba08ff;
+
 }
 
 
@@ -51,7 +53,11 @@ nav a {
 }
 
 .card:hover .card-title {
+
     color: #ce8d00; 
+=======
+    color: #fc7a2a; 
+
 }
 
 
@@ -75,7 +81,7 @@ nav a {
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #f00; 
+    background-color: rgb(255, 0, 0);
     color: #fff;
     text-decoration: none;
     font-weight: bold;
@@ -84,7 +90,8 @@ nav a {
 }
 
 .cta-button:hover {
-    background-color: #d00;
+    background-color: rgb(8, 82, 255);
+
 }
 
 

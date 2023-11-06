@@ -1,4 +1,6 @@
 
+
+
 function handleFormSubmit(event) {
     event.preventDefault(); 
  
@@ -45,22 +47,56 @@ function validateForm() {
     if (username === "" || password === "") {
         alert("Username and password are required");
         return false;
+=======
+document.addEventListener("DOMContentLoaded", function () {
+  const usernameInput = document.getElementById("username");
+  const passwordInput = document.getElementById("password");
+  const loginButton = document.getElementById("login-button");
+  const forgotPasswordLink = document.getElementById("forgot-password-link");
+
+  loginButton.addEventListener("click", function (event) {
+    event.preventDefault();
+    const username = usernameInput.value;
+    const password = passwordInput.value;
+
+    // Check if there's user data in local storage
+    const usersData = JSON.parse(localStorage.getItem("usersData")) || [];
+
+    // Check if the entered username and password match any user data
+    const user = usersData.find((userData) => userData.username === username && userData.password === password);
+
+    if (user) {
+      // Mark the user as logged in by storing a flag in local storage
+      localStorage.setItem("isLoggedIn", "true");
+
+      // Redirect to the home page when login is successful
+      window.location.href = "/Page/HOME.HTML";
+    } else {
+      alert("Invalid email or password. Please try again.");
+
     }
+  });
 
- 
-    var userData = {
-        username: username,
-        password: password
-    };
-    localStorage.setItem('userData', JSON.stringify(userData));
+  forgotPasswordLink.addEventListener("click", function (event) {
+    // Add logic to handle the "Forgot Password?" functionality
+    alert("Forgot Password link clicked");
+  });
+
+  // Check if the user is already logged in
+  if (localStorage.getItem("isLoggedIn") === "true") {
+    // Redirect to the home page
+    window.location.href = "/Page/HOME.HTML";
+  }
+});
 
 
-    window.location.href = "/Page/HOME.HTML"; 
 
-    return false; 
-}
+  
+  
+  
 
-const apiUrl = '';
+
+
 
 $.ajax({
     url: apiUrl,
@@ -74,3 +110,64 @@ $.ajax({
         console.error('Error:', error);
     }
 });
+
+document.getElementById("login-button").addEventListener("click", function () {
+    var username = document.getElementById("username").value;
+    var password = document.getElementById("password").value;
+
+    if (username === "your_username" && password === "your_password") {
+      window.location.href = "/home.html"; // Redirect to the home page if login is successful
+    } else {
+      alert("Invalid username or password. Please try again.");
+    }
+
+
+    document.getElementById("forgot-password-link").addEventListener("click", function () {
+        // Prompt the user to enter their email address for password reset
+        var userEmail = prompt("Enter your email address for password reset:");
+      
+        // Check if the user entered an email address
+        if (userEmail !== null) {
+          // Send the email address to the server for password reset
+          // You can implement this logic based on your backend and email service
+          // Here, we'll just log the email for demonstration purposes
+          console.log("Password reset email sent to: " + userEmail);
+          alert("Password reset instructions have been sent to your email.");
+        }
+      });
+
+
+      document.addEventListener("DOMContentLoaded", function() {
+        // Check if the user is signed in
+        const userIsSignedIn = /* Replace this with your logic to check if the user is signed in */;
+    
+        if (userIsSignedIn) {
+            // User is signed in, redirect to the home page
+            window.location.href = "/Page/HOME.HTML"; // Replace with the actual URL of your home page
+        }
+    });
+
+
+    // Your AJAX request
+    $.ajax({
+      url: 'your_api_url_here', // Replace with the actual API URL
+      method: 'GET',
+      dataType: 'json',
+      success: function(data) {
+        // Handle the response from the server
+        console.log(data);
+      },
+      error: function(error) {
+        // Handle AJAX request errors
+        console.error('Error:', error);
+      }
+    });
+  });
+=======
+
+
+
+  
+
+
+

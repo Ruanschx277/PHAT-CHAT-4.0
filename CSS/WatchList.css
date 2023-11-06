@@ -4,49 +4,62 @@ html, body, form
     padding: 0;
 }
 
-body
-{
-    background-color: lightgrey;
-}
-
-nav
-{
-    height: 80px;
-    padding-left: 25px;
-    padding-right: 50px;
-    background-color: white;
-}
-
-.nav-con
-{
-    width: 700px;
-    height: 50px;
-    float: left;
-    margin-left: 10%;
-    padding-top: 8px;
-}
-
-.nav-con ul
-{
-    list-style: none;
-}
-
-.nav-con li
-{
-    float: left;
-    width: 90px;
-    height: 35px;
-    text-align: center;
-    margin-right: 15px;
-    margin-left: 100px;
-    padding-top: 5px;
-}
-
-.nav-con li:hover
-{
-    font-weight: bold;
-    cursor: pointer;
-}
+body {
+    background-color: #212529ff;
+  }
+  
+  /* Navigation bar color and spacing */
+  .bg-orange {
+    background-color:  #e85d04ff !important;
+    color: white
+  }
+  
+  /*badge colors*/
+  .bg-red {
+    background-color: red !important;
+  }
+  
+  .bg-green {
+    background-color: green;
+  }
+  
+  /*logo size and spacing */
+  .navbar-brand img {
+    width: 60px; /* Make the logo smaller for responsiveness */
+    margin-right: 5px; /* Adjust margin for spacing */
+  }
+  
+  /* Spacing between the navigation bar and the cards */
+  .library-container {
+    margin-top: 10px; /* Adjust the margin-top for spacing */
+  }
+  
+  /* Buttons */
+  .btn {
+    background-color: #dc2f02ff;
+    border-color:#faa307ff;
+    color: #fff;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .btn:hover {
+    background-color: #ffba08ff;
+  }
+  
+  .custom-signup-btn {
+    background-color: #534b52;
+    border-color: #e0ddef;
+    color: #fff;
+  }
+  
+  .custom-signup-btn:hover {
+    background-color: #ffba08ff;
+    border-color: #ffba08ff;
+    color: white;
+  }
 
 .active
 { 
@@ -59,62 +72,4 @@ nav
 {
     width: 100px;
     float: left;
-}
-
-.container
-{
-    width: 15%;
-    height: 100%;
-}
-
-.container h2
-{
-    width: 50px;
-    float: left;
-    padding-left: 15px;
-}
-
-.row
-{
-    margin-left: 100px;
-    padding-top: 50px;
-    float: left;
-    width: 100%;
-}
-
-.row img
-{
-    float: left;
-    padding-top: 9px;
-}
-
-
-.card-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 20px;
-}
-
-
-.card {
-    width: 18rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.card-img-top {
-    max-width: 100%;
-    height: auto;
-}
-
-.card-title {
-    font-weight: bold;
-    margin-top: 10px;
-}
-
-.card-text {
-    margin-top: 10px;
 }
