@@ -9,29 +9,22 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a, img, iframe, button {
 
 /* Navigation bar color and spacing */
 .bg-orange {
-    background-color:  #e85d04ff !important;
-    color: white
-  }
-  
-  /*badge colors*/
-  .bg-red {
-    background-color: red !important;
-  }
-  
-  .bg-green {
-    background-color: green;
-  }
-  
-  /*logo size and spacing */
-  .navbar-brand img {
-    width: 60px; /* Make the logo smaller for responsiveness */
-    margin-right: 5px; /* Adjust margin for spacing */
-  }
-  
-  /* Spacing between the navigation bar and the cards */
-  .library-container {
-    margin-top: 10px; /* Adjust the margin-top for spacing */
-  }
+  background-color: #F79D65 !important;
+}
+.bg-red {
+  background-color: red !important;
+}
+.bg-green {
+  background-color: green;
+}
+
+
+/* Adjust the logo size and spacing */
+.navbar-brand img {
+  width: 80px; /* Adjust the width to make the logo smaller */
+  margin-right: 10px; /* Adjust the margin to control how much it hangs off */
+}
+
   
   /* Buttons */
   .btn {
@@ -156,6 +149,6 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, ul, li, a, img, iframe, button {
     width: 100%;
     font-size: x-large;
     font-weight: bold;
-    background: #333;
+    background: #F79D65;
     color: black;
   }
