@@ -10,301 +10,114 @@
     <link rel="stylesheet" href="/CSS/MovieLibary.css">
     <!-- Javascript -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
-    <script src="/JS/movielibrary.js"></script>
-   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js" integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script src="/JS/MovieLibary.js"></script>
 </head>
-<body>
+<body  onload = "displayMovie()">
 <!-- Nav Bar -->
+<header>
 <nav class="navbar navbar-expand-lg navbar-light bg-orange fixed-top">
   <div class="container px-4 px-lg-5">
-      <a class="navbar-brand" href="#!">PhatChat TV</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="pageLogo">
+      <img src="/LOGO/PHAT CHAT TV.png" alt="PHAT CHAT" style="width: 100px; margin-left: -100px;">
+  </div>
+  <a class="navbar-brand" href="HOME.HTML">PhatChat TV</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-              <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
-              <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
-              <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
-                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
-                      <li><hr class="dropdown-divider" /></li>
-                      <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
-                      <li><a class="dropdown-item" href="#!">Contact Us</a></li>
-                  </ul>
-              </li>
-          </ul>
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+          <li class="nav-item"><a class="nav-link" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../Page/Watchlist.html">Watch List</a></li>
+          <li class="nav-item"><a class="nav-link active" href="../Page/Movie Libary.html">Movie Library Page</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                <li><a class="dropdown-item" href="#!">Contact Us</a></li>
+              </ul>
+            </li>
+        </ul>
           <div class="d-flex">
             <a class="btn btn-outline-dark custom-signup-btn" href="/Page/Sign In.html">
               Sign Up/Login
             </a>
           </div>
-
-      </div>
-  </div>
-</nav>
+        </div>
+    </div>
+  </nav>
+</header>
 <!-- Nav Bar -->
 <!--Library-->
- <!-- Section-->
- <section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-3">
-            <div class="col mb-5"><!--Card1-->
-                <div class="card h-100 d-flex flex-column custom-card-bg">
-                    <!-- New badge-->
-                <div class="badge bg-green text-white position-absolute" style="top: 0.5rem; right: 0.5rem">POPULAR!</div>
-                    <!-- Product image-->
-                    <img class="card-img-top" src="/Images/Halloween1978.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                    <div class="text-center">
-                        <!-- Product name-->
-                        <h5 class="fw-bolder">Movie</h5>
-                    </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                      <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                      <a class="btn btn-outline-orange btn-block" data-movie-id="1" onclick="showSuccessModal()">Watch List</a>
-                    </div>
-                </div>
-                
-            </div>
-           
-            <div class="col mb-5"><!--Card2-->
-              <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- New badge-->
-                <div class="badge bg-red text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NEW!</div>
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/550x816.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                  <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                  </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                  <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                  <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-              </div>
-          </div>
-           
-          <div class="col mb-5"> <!--Card3-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-              <!-- New badge-->
-              <div class="badge bg-red text-white position-absolute" style="top: 0.5rem; right: 0.5rem">NEW!</div>
-              <!-- Product image-->
-              <img class="card-img-top" src="/Images/81orCFVm9iL.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
-              <!-- Product details-->
-              <div class="card-body p-4">
-                <div class="text-center">
-                  <!-- Product name-->
-                  <h5 class="fw-bolder">Movie</h5>
-                </div>
-              </div>
-              <!-- Product actions-->
-              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-              </div>
-            </div>
-        </div>
-          <div class="col mb-5"><!--Card4-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/avangers.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5"><!--Card5-->
-             <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/Jurassic park.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5"><!--Card6-->  
-              <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/DrWho.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-              <!--Card7-->  
-              <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/Matrix.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-            <!--Card8-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/pnghorror movie poster@3x.png" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-            <!--Card9-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/Geekchic.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-            <!--Card10-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/Barbie.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-            <!--Card11-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/shrek.jpeg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-          <div class="col mb-5">
-            <!--Card12-->
-            <div class="card h-100 d-flex flex-column custom-card-bg">
-                <!-- Product image-->
-                <img class="card-img-top" src="/Images/HarryPotter.jpg" alt="..." style="max-width: 100%; max-height: 100%;">
-                <!-- Product details-->
-                <div class="card-body p-4">
-                <div class="text-center">
-                    <!-- Product name-->
-                    <h5 class="fw-bolder">Movie</h5>
-                </div>
-                </div>
-                <!-- Product actions-->
-                <div class="card-footer p-4 pt-0 border-top-0 bg-transparent mt-auto">
-                <a class="btn btn-outline-orange btn-block" href="#">Play Movie</a>
-                <a class="btn btn-outline-orange btn-block" data-movie-id="1">+ Watch List</a>
-                </div>
-            </div>
-          </div>
-      </div> <!--Row-->
-    </div> <!--Container-->
-</section>
+<div class="buttonContainer">
+  <button  class = "btn" id = "allMovies" style="margin-left: 20px;">All Movies</button>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Genre
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="genreButton">
+      <li><a class="dropdown-item" id="comedy">Comedy</a></li>
+      <li><a class="dropdown-item" id="adventure">Adventure</a></li>
+      <li><a class="dropdown-item" id="fantasy">Fantasy</a></li>
+      <li><a class="dropdown-item" id="animation">Animation</a></li>
+      <li><a class="dropdown-item" id="action">Action</a></li>
+      <li><a class="dropdown-item" id="documentary">Documentary</a></li>
+      <li><a class="dropdown-item" id="drama">Drama</a></li>
+      <li><a class="dropdown-item" id="scifi">Sci-Fi</a></li>
+      <li><a class="dropdown-item" id="horror">Horror</a></li>
+      <li><a class="dropdown-item" id="crime">Crime</a></li>
+      <li><a class="dropdown-item" id="romance">Romance</a></li>
+      <li><a class="dropdown-item" id="family">Family</a></li>
+      <li><a class="dropdown-item" id="music">Music</a></li>
+      <li><a class="dropdown-item" id="western">Western</a></li>
+    </ul>
+  </div>
+
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+      IMBd Score
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="genreButton">
+      <li><a class="dropdown-item" id="ratingToTwo">0.0 - 2.0</a></li>
+      <li><a class="dropdown-item" id="ratingToFour">2.1 - 4.0</a></li>
+      <li><a class="dropdown-item" id="ratingToSix">4.1 - 6.0</a></li>
+      <li><a class="dropdown-item" id="ratingToEight">6.1 - 8.0</a></li>
+      <li><a class="dropdown-item" id="ratingToTen">8.1 - 10.0</a></li>
+    </ul>
+  </div>
+
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle mx-3" type="button" id="genreButton" data-bs-toggle="dropdown" aria-expanded="false">
+      Year
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="genreButton">
+      <li><a class="dropdown-item" id="1995-2000">1995 - 2000</a></li>
+      <li><a class="dropdown-item" id="2001-2005">2001 - 2005</a></li>
+      <li><a class="dropdown-item" id="2006-2010">2006 - 2010</a></li>
+      <li><a class="dropdown-item" id="2011-2015">2011 - 2015</a></li>
+      <li><a class="dropdown-item" id="2016-2020">2016 - 2020</a></li>
+      <li><a class="dropdown-item" id="2021">2021+</a></li>
+    </ul>
+  </div>
+</div>
+
+  
+ <div class = "cardContainer" style="height: fit-content; background-color: #2D232E; width: 100%">
+  <div class = "row">
+      <div class="card-container" id="card-container">
+      </div>
+    </div>
+</div>
 <!-- Footer-->
-<footer class="py-5 bg-dark">
-  <div class="container">
+<footer class="py-5">
+  <div class="container" style="height: 300px; width: 100%;" >
       <p class="m-0 text-center text-white">Copyright &copy; PhatChatTV 2023</p>
   </div>
 </footer>
 <!--Back to Top button-->
-<button class="btn" id="backToTopBtn" onclick="scrollToTop()">Back to Top</button>
-<!-- Success Modal -->
-<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="successModalLabel">SUCCESS!</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        This movie has been added to your Watch List.
-      </div>
-    </div>
-  </div>
-</div>
-
+<button class="btn" id="backToTopBtn" style="margin-left: 20px;" onclick="scrollToTop()">Back to Top</button>
 </body>
 </html>

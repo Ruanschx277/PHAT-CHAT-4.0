@@ -2,69 +2,238 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Streaming App</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
- <link rel="stylesheet" href="/CSS/styles.css">
- <body>
-    <header>
-        
-        <nav>
-            <ul>
-                <li><a href="/Page/HOME.HTML">HOME</a></li>
-                <li><a href="/Page/Movie Library.html">Movie Library</a></li>
-                <li><a href="/Page/SingleFilms.html">Single Movies</a></li>
-                <li><a href="/Page/Watchlist.html">Watch List</a></li>
-  
-  
-  
-            </ul>
-        </nav>
-    <nav class="navbar">
-        <div class="container">
-            <a class="navbar-brand" href="#">Logo</a>
-            <ul class="navbar-nav mx-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Popular Movies</a>
+    <meta name="author" content="group3">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/CSS/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/JS/script.js"></script>
+
+    <title id="movietitle"> Single </title>
+</head>
+<body onload="singleloader()">
+    <!-- Nav Bar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-orange fixed-top">
+    <div class="container px-4 px-lg-5">
+        <a class="navbar-brand" href="#!">PhatChat TV</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="/Page/HOME.HTML">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="#!">About</a></li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Shop</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#!">Subscription Plans</a></li>
+                        <li><hr class="dropdown-divider" /></li>
+                        <li><a class="dropdown-item" href="https://youtu.be/GBIIQ0kP15E?si=0cUPJWCPOkARKAhD">Click me if you dare</a></li>
+                        <li><a class="dropdown-item" href="#!">Contact Us</a></li>
+                    </ul>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Categories</a>
-                </li>
             </ul>
-            <div class="search-bar">
-                <input type="text" class="form-control" placeholder="Search...">
+            <div class="d-flex">
+              <a class="btn btn-outline-dark custom-signup-btn" href="/Page/Sign In.html">
+                Sign Up/Login
+              </a>
             </div>
-            <i class="fas fa-bell notification-bell"></i>
-            <i class="fas fa-user user-icon"></i>
+  
         </div>
-    </nav>
-    <div class="sidebar">
-        <ul>
-            <li>Live</li>
-            <li>Channels</li>
-            <li>Latest</li>
-            <li>Settings</li>
-        </ul>
     </div>
-    <div class="content">
-        <div class="channel-header">Channel Name</div>
-        <div class="video-container">
-            <!-- Video player or placeholder -->
-        </div>
-        <button class="btn btn-danger unsubscribe-button">Unsubscribe <i class="fas fa-bell"></i></button>
-        <div class="movie-description">
-            <!-- Movie description (Lorem Ipsum) -->
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in massa id sem condimentum aliquet.</p>
-        </div>
-        <h2 class="playlists">Playlists</h2>
-        <div class="playlist-box">Playlist 1</div>
-        <div class="playlist-box">Playlist 2</div>
-        <div class="playlist-box">Playlist 3</div>
-        <div class="playlist-box">Playlist 4</div>
-        <div class="playlist-box">Playlist 5</div>
+  </nav>
+  <!-- Nav Bar -->
+    
+    <!--Movie-->
+    <div id="MainMovieContainer">
+        <div class="row movie">
+            <div id="movie" class="col-lg-12" style="background: color rgb(194, 30, 30);">
+                <iframe id="movietrailer" src="https://www.youtube.com/embed/qSqVVswa420" height="600" width="1075" title="Top Gun: Maverick - Official Trailer (2022) - Paramount Pictures" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+        </div>  
+        <br>
+        <div class="row info">
+            <div id="info" class="col-lg-8" style="background: color red;">
+                <h1 id="title"> Top gun : Maverick </h1>
+                <ul>
+                    <li><h2 id="year"> Year: 2022 </h2></li>
+                    <li><h2 id="rating"> Rating: 8.4/10 </h2></li>
+                    <li><h2 id="genres"> Genres: Action/Adventure/Drama </h2></li>
+                </ul>
+            </div>
+            <div id="cast" class="col-lg-4" style="background: color red;">
+                <h2> Starring: </h2>
+                <ul>
+                    <li><h2 id="mc"> error </h2></li>
+                    <li><h2 id="cast1"> error </h2></li>
+                    <li><h2 id=cast2> error </h2></li>
+                    <li><h2 id=cast3> error </h2></li>
+                </ul>
+            </div>
+        </div>  
+        <div class="row description">
+            <div id="description" class="col-lg-12" style="background: color red;">
+                <h1>Description:</h1>
+                <p id="desc">
+                    error
+                </p>
+            </div>
+        </div> 
+        <div class="row buttons" style="margin-top: 4%">
+            <div id="WatchNow" class="col-lg-5" style="background: color red;">
+                <button class="button"> Watch Now </button>
+            </div>
+            <div class="col-lg-2" style="background: color red;"></div>
+            <div id="WatchLater" class="col-lg-5" style="background: color red;">
+                <button class="button"> Add to Watch List </button>
+            </div>
+        </div> 
     </div>
 
-    <!-- Add Bootstrap and Font Awesome libraries -->
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!--Movies list-->
+
+    <div id="MoviesListContainer">
+        <input type="search" placeholder="Search..." class="SearchField">
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie1" src="/Images/Barbie.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle1">Barbie</h2>
+                </div>
+            </div>
+
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie2" src="/Images/DrWho.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle12">Dr Who</h2>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie3" src="/Images/Geekchic.jpg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle3">Geek Chic</h2>
+                </div>
+            </div>
+
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie4" src="/Images/Halloween1978.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle4">Halloween 1978</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie5" src="/Images/HarryPotter.jpg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle5">Harry Potter</h2>
+                </div>
+            </div>
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie6" src="/Images/Jurassic park.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle6">Jurrasic Park</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie7" src="/Images/Matrix.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle7">Matrix</h2>
+                </div>
+            </div>
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie8" src="/Images/shrek.jpeg" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle8">Shrek</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie9" src="/Images/theGodFather.jpeg" src="TMDB log in info.txt" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle9">The GodFather</h2>
+                </div>
+            </div>
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie10" src="" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2>Movie Title</h2>
+                </div id="sparetitle10">
+            </div>
+        </div>
+        <div class="row" id="MoviesList">
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie11" src="" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle11">Movie Title</h2>
+                </div>
+            </div>
+            <div class="MovieCard col-lg-6">
+                <div class="left" style="margin-right: 4%;">
+                    <img id="sparemovie12" src="" height="100px" width="100px">
+                </div>
+                <div>
+                    <h2 id="sparetitle12">Movie Title</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer>
+        <div class="row footer">
+            <div class="col-md-9" style="background: color blue;"> 
+                <div>
+                    <a href="Home.html">
+                    <img id="logo" class="left" src="Assets/Logo variations/original filled.png" height="45">
+                    <h3 id="footerheading" class="left">PHAT CHAT</h3> 
+                    </a>
+                </div>
+            </div> 
+            <div class="col-xs-1" style="background-color:#ffa600;">
+                <a href="https://twitter.com/?lang=en">
+                    <img src="Assets/Icons/twitter_icon.svg" height="60">
+                </a> 
+            </div>
+            <div class="col-xs-1" style="background-color:#ffa600;"> 
+                <a href="https://www.instagram.com/"> 
+                    <img src="Assets/Icons/instagram_icon.svg" height="60">
+                </a> 
+            </div>  
+            <div class="col-xs-1" style="background-color:#ffa600;">
+                <a href="https://web.facebook.com/campaign/landing.php?campaign_id=1653399747&extra_1=s%7Cc%7C318269478237%7Ce%7Cfacebook%27%7C&placement&creative=318269478237&keyword=facebook%27&partner_id=googlesem&extra_2=campaignid%3D1653399747%26adgroupid%3D68955935732%26matchtype%3De%26network%3Dg%26source%3Dnotmobile%26search_or_content%3Ds%26device%3Dc%26devicemodel%3D%26adposition%3D%26target%3D%26targetid%3Dkwd-362360550869%26loc_physical_ms%3D1028682%26loc_interest_ms%3D%26feeditemid%3D%26param1%3D%26param2%3D&gclid=EAIaIQobChMI6MXd78HG-QIVianVCh0kHAx8EAAYASAAEgI5k_D_BwE&_rdc=1&_rdr"> 
+                    <img src="Assets/Icons/facebook_icon.svg" height="60">
+                </a> 
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
