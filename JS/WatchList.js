@@ -1,7 +1,6 @@
 function displayWatchList() {
     let selectedMovie = JSON.parse(localStorage.getItem("watchlist"));
     let cardContainer = $('#card-container');
-    console.log(selectedMovie)
     cardContainer.empty();
 
     for (let i = 0; i < selectedMovie.length; i++) {
